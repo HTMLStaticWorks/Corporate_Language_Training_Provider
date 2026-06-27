@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LinguaPro | HR Dashboard</title>
-  
+
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
-  
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  
+
   <style>
     /* Dashboard Specific Styles */
     body {
       background-color: var(--color-secondary);
     }
-    
+
     .dashboard-layout {
       display: flex;
       height: 100vh;
       overflow: hidden;
     }
-    
+
     /* Sidebar */
     .sidebar {
       width: 240px;
@@ -34,7 +35,7 @@
       transition: var(--transition);
       z-index: 100;
     }
-    
+
     .sidebar-header {
       height: 80px;
       display: flex;
@@ -43,17 +44,17 @@
       border-bottom: 1px solid var(--color-border);
       justify-content: space-between;
     }
-    
+
     .sidebar-menu {
       flex-grow: 1;
       padding: 24px 0;
       overflow-y: auto;
     }
-    
+
     .sidebar-menu ul {
       list-style: none;
     }
-    
+
     .sidebar-menu a {
       display: flex;
       align-items: center;
@@ -63,26 +64,27 @@
       font-weight: 510;
       transition: var(--transition);
     }
-    
+
     .sidebar-menu a i {
       font-size: 1.25rem;
     }
-    
-    .sidebar-menu a:hover, .sidebar-menu a.active {
+
+    .sidebar-menu a:hover,
+    .sidebar-menu a.active {
       background: var(--color-secondary);
       color: var(--color-primary);
       border-right: 3px solid var(--color-primary);
     }
-    
+
     .sidebar-menu a.active i {
       color: var(--color-accent);
     }
-    
+
     .sidebar-footer {
       padding: 24px;
       border-top: 1px solid var(--color-border);
     }
-    
+
     /* Main Content */
     .main-content {
       flex-grow: 1;
@@ -90,7 +92,7 @@
       flex-direction: column;
       overflow: hidden;
     }
-    
+
     .topbar {
       height: 80px;
       background: var(--color-surface);
@@ -100,17 +102,17 @@
       justify-content: space-between;
       padding: 0 32px;
     }
-    
+
     .content-area {
       flex-grow: 1;
       padding: 32px;
       overflow-y: auto;
     }
-    
+
     .dashboard-view {
       display: none;
     }
-    
+
     /* KPI Cards */
     .kpi-grid {
       display: grid;
@@ -118,14 +120,14 @@
       gap: 24px;
       margin-bottom: 32px;
     }
-    
+
     .kpi-card {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius);
       padding: 24px;
     }
-    
+
     .kpi-value {
       font-size: 2rem;
       font-family: var(--font-heading);
@@ -133,12 +135,12 @@
       color: var(--color-primary);
       margin: 8px 0;
     }
-    
+
     .kpi-label {
       font-size: 0.85rem;
       color: var(--color-muted);
     }
-    
+
     /* Dashboard Tables */
     .table-container {
       background: var(--color-surface);
@@ -146,45 +148,69 @@
       border-radius: var(--radius);
       overflow: auto;
     }
-    
+
     .data-table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
     }
-    
-    .data-table th, .data-table td {
+
+    .data-table th,
+    .data-table td {
       padding: 16px 24px;
       border-bottom: 1px solid var(--color-border);
       font-size: 0.95rem;
     }
-    
+
     .data-table th {
       background: var(--color-secondary);
       color: var(--color-muted);
       font-weight: 510;
       white-space: nowrap;
     }
-    
+
     .data-table tr:last-child td {
       border-bottom: none;
     }
-    
+
     .status-badge {
       padding: 4px 12px;
       border-radius: 20px;
       font-size: 0.8rem;
       font-weight: 510;
     }
-    .status-active { background: #e8f5e9; color: #2e7d32; }
-    .status-pending { background: #fff8e1; color: #f57f17; }
-    .status-completed { background: #e3f2fd; color: #1565c0; }
-    
+
+    .status-active {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .status-pending {
+      background: #fff8e1;
+      color: #f57f17;
+    }
+
+    .status-completed {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
     /* Score colors */
-    .score-green { color: #2e7d32; font-weight: 510; }
-    .score-amber { color: #f57f17; font-weight: 510; }
-    .score-red { color: #c62828; font-weight: 510; }
-    
+    .score-green {
+      color: #2e7d32;
+      font-weight: 510;
+    }
+
+    .score-amber {
+      color: #f57f17;
+      font-weight: 510;
+    }
+
+    .score-red {
+      color: #c62828;
+      font-weight: 510;
+    }
+
     /* Custom Chart */
     .chart-container {
       background: var(--color-surface);
@@ -193,7 +219,7 @@
       padding: 32px;
       margin-bottom: 32px;
     }
-    
+
     .cefr-chart {
       display: flex;
       align-items: flex-end;
@@ -203,7 +229,7 @@
       border-bottom: 1px solid var(--color-border);
       padding-bottom: 8px;
     }
-    
+
     .chart-col {
       flex: 1;
       display: flex;
@@ -212,7 +238,7 @@
       justify-content: flex-end;
       height: 100%;
     }
-    
+
     .chart-bar-wrapper {
       width: 100%;
       max-width: 60px;
@@ -223,7 +249,7 @@
       border-radius: 4px 4px 0 0;
       position: relative;
     }
-    
+
     .chart-bar-fill {
       width: 100%;
       background: var(--color-accent);
@@ -231,13 +257,13 @@
       transition: height 1s ease-out;
       height: 0;
     }
-    
+
     .chart-label {
       margin-top: 8px;
       font-weight: 510;
       font-size: 0.9rem;
     }
-    
+
     /* Modals */
     .modal {
       position: fixed;
@@ -245,7 +271,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 2000;
       display: flex;
       align-items: center;
@@ -254,69 +280,78 @@
       visibility: hidden;
       transition: var(--transition);
     }
-    
+
     .modal.open {
       opacity: 1;
       visibility: visible;
     }
-    
+
     .modal-content {
       background: var(--color-surface);
       border-radius: var(--radius);
       width: 90%;
       max-width: 500px;
       padding: 32px;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
     }
-    
+
     /* Mobile adjustments */
     .mobile-sidebar-toggle {
       display: none;
     }
+
     .sidebar-close {
       display: none;
     }
-    
+
     @media (max-width: 1024px) {
       .sidebar {
         position: fixed;
         left: -240px;
         height: 100%;
       }
+
       .sidebar.open {
         left: 0;
-        box-shadow: 4px 0 24px rgba(0,0,0,0.1);
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
       }
+
       .mobile-sidebar-toggle {
         display: block;
       }
+
       .sidebar-close {
         display: block;
       }
+
       .topbar {
         padding: 0 16px;
       }
+
       .content-area {
         padding: 16px;
       }
     }
   </style>
 </head>
+
 <body>
 
   <div class="dashboard-layout">
-    
+
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-header">
         <a href="index.html" class="logo">
-          <span class="logo-lingua" style="font-size: 1.25rem;">Lingua</span><span class="logo-pro" style="font-size: 1.25rem;">Pro</span>
+          <img src="assets/images/logo.svg" alt="LinguaPro Logo" style="height: 32px; width: auto;">
         </a>
         <button class="icon-btn sidebar-close" aria-label="Close Sidebar"><i class="ph ph-x"></i></button>
       </div>
-      
+
       <div class="sidebar-menu">
-        <div style="padding: 0 24px 8px 24px; font-size: 0.75rem; text-transform: uppercase; color: var(--color-muted); letter-spacing: 0.05em; font-weight: 510;">HR Workspace</div>
+        <div
+          style="padding: 0 24px 8px 24px; font-size: 0.75rem; text-transform: uppercase; color: var(--color-muted); letter-spacing: 0.05em; font-weight: 510;">
+          HR Workspace</div>
         <ul>
           <li><a href="#overview" class="active"><i class="ph ph-squares-four"></i> Overview</a></li>
           <li><a href="#enrollment"><i class="ph ph-users-three"></i> Team Enrollment</a></li>
@@ -324,24 +359,32 @@
           <li><a href="#assessments"><i class="ph ph-exam"></i> CEFR Assessments</a></li>
           <li><a href="#reports"><i class="ph ph-file-pdf"></i> Group Reports</a></li>
           <li><a href="#profiles"><i class="ph ph-user-circle"></i> Learner Profiles</a></li>
-          <li><a href="#notifications"><i class="ph ph-bell"></i> Notifications <span style="background: var(--color-accent); color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-left: auto;">3</span></a></li>
+          <li><a href="#notifications"><i class="ph ph-bell"></i> Notifications <span
+                style="background: var(--color-accent); color: #fff; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-left: auto;">3</span></a>
+          </li>
         </ul>
-        
-        <div style="padding: 24px 24px 8px 24px; font-size: 0.75rem; text-transform: uppercase; color: var(--color-muted); letter-spacing: 0.05em; font-weight: 510;">Admin</div>
+
+        <div
+          style="padding: 24px 24px 8px 24px; font-size: 0.75rem; text-transform: uppercase; color: var(--color-muted); letter-spacing: 0.05em; font-weight: 510;">
+          Admin</div>
         <ul>
           <li><a href="#settings"><i class="ph ph-gear"></i> Settings</a></li>
         </ul>
       </div>
-      
+
       <div class="sidebar-footer">
         <div class="d-flex align-center gap-2 mb-3">
-          <div style="width: 40px; height: 40px; background: var(--color-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 510;">AC</div>
+          <div
+            style="width: 40px; height: 40px; background: var(--color-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 510;">
+            AC</div>
           <div>
             <div style="font-weight: 510; font-size: 0.9rem;">Acme Corp</div>
             <div style="font-size: 0.75rem; color: var(--color-muted);">Enterprise Plan</div>
           </div>
         </div>
-        <a href="login.html" class="logout-link" style="color: #e74c3c; font-size: 0.9rem; font-weight: 510; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-sign-out"></i> Logout</a>
+        <a href="login.html" class="logout-link"
+          style="color: #e74c3c; font-size: 0.9rem; font-weight: 510; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i
+            class="ph ph-sign-out"></i> Logout</a>
       </div>
     </aside>
 
@@ -351,23 +394,25 @@
       <div class="topbar">
         <div class="d-flex align-center gap-2">
           <button class="icon-btn mobile-sidebar-toggle"><i class="ph ph-list"></i></button>
-          <h2 style="font-size: 1.25rem; font-family: var(--font-body); font-weight: 510;" id="page-title">Dashboard Overview</h2>
+          <h2 style="font-size: 1.25rem; font-family: var(--font-body); font-weight: 510;" id="page-title">Dashboard
+            Overview</h2>
         </div>
-        
+
         <div class="d-flex align-center gap-2">
           <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
           <div style="width: 32px; height: 32px; border-radius: 50%; overflow: hidden; margin-left: 8px;">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Admin" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
+              alt="Admin" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
         </div>
       </div>
-      
+
       <!-- Content Area -->
       <div class="content-area">
-        
+
         <!-- View: Overview -->
         <div id="overview" class="dashboard-view" style="display: block;">
-          
+
           <div class="kpi-grid">
             <div class="kpi-card">
               <div class="d-flex justify-between align-center">
@@ -375,18 +420,20 @@
                 <i class="ph ph-users" style="color: var(--color-muted); font-size: 1.25rem;"></i>
               </div>
               <div class="kpi-value">428</div>
-              <div style="font-size: 0.8rem; color: var(--color-accent);"><i class="ph ph-arrow-up-right"></i> 12% this month</div>
+              <div style="font-size: 0.8rem; color: var(--color-accent);"><i class="ph ph-arrow-up-right"></i> 12% this
+                month</div>
             </div>
-            
+
             <div class="kpi-card">
               <div class="d-flex justify-between align-center">
                 <div class="kpi-label">Avg. Completion Rate</div>
                 <i class="ph ph-check-circle" style="color: var(--color-muted); font-size: 1.25rem;"></i>
               </div>
               <div class="kpi-value">84%</div>
-              <div style="font-size: 0.8rem; color: var(--color-accent);"><i class="ph ph-arrow-up-right"></i> 5% vs last quarter</div>
+              <div style="font-size: 0.8rem; color: var(--color-accent);"><i class="ph ph-arrow-up-right"></i> 5% vs
+                last quarter</div>
             </div>
-            
+
             <div class="kpi-card">
               <div class="d-flex justify-between align-center">
                 <div class="kpi-label">Target CEFR Achieved</div>
@@ -395,7 +442,7 @@
               <div class="kpi-value">215</div>
               <div style="font-size: 0.8rem; color: var(--color-muted);">Employees certified</div>
             </div>
-            
+
             <div class="kpi-card">
               <div class="d-flex justify-between align-center">
                 <div class="kpi-label">Active Courses</div>
@@ -405,7 +452,7 @@
               <div style="font-size: 0.8rem; color: var(--color-muted);">Across 4 languages</div>
             </div>
           </div>
-          
+
           <!-- CEFR Chart -->
           <div class="chart-container">
             <div class="d-flex justify-between align-center mb-3">
@@ -416,7 +463,7 @@
                 <option>Spanish</option>
               </select>
             </div>
-            
+
             <div class="cefr-chart">
               <div class="chart-col">
                 <div class="chart-bar-wrapper" data-value="15">
@@ -456,26 +503,36 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Activity Feed -->
           <div class="card" style="padding: 24px;">
             <h3 class="mb-3" style="font-size: 1.2rem;">Recent Activity</h3>
             <div style="display: flex; flex-direction: column; gap: 16px;">
               <div class="d-flex align-center gap-2">
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: #e8f5e9; color: #2e7d32; display: flex; align-items: center; justify-content: center;"><i class="ph ph-certificate"></i></div>
-                <div style="font-size: 0.95rem;"><strong>Maria R.</strong> achieved CEFR Level B2 in Business English. <span style="color: var(--color-muted); font-size: 0.8rem; margin-left: 8px;">2h ago</span></div>
+                <div
+                  style="width: 32px; height: 32px; border-radius: 50%; background: #e8f5e9; color: #2e7d32; display: flex; align-items: center; justify-content: center;">
+                  <i class="ph ph-certificate"></i></div>
+                <div style="font-size: 0.95rem;"><strong>Maria R.</strong> achieved CEFR Level B2 in Business English.
+                  <span style="color: var(--color-muted); font-size: 0.8rem; margin-left: 8px;">2h ago</span></div>
               </div>
               <div class="d-flex align-center gap-2">
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: #e3f2fd; color: #1565c0; display: flex; align-items: center; justify-content: center;"><i class="ph ph-user-plus"></i></div>
-                <div style="font-size: 0.95rem;"><strong>Sales Dept</strong> (14 employees) enrolled in Corporate Spanish. <span style="color: var(--color-muted); font-size: 0.8rem; margin-left: 8px;">5h ago</span></div>
+                <div
+                  style="width: 32px; height: 32px; border-radius: 50%; background: #e3f2fd; color: #1565c0; display: flex; align-items: center; justify-content: center;">
+                  <i class="ph ph-user-plus"></i></div>
+                <div style="font-size: 0.95rem;"><strong>Sales Dept</strong> (14 employees) enrolled in Corporate
+                  Spanish. <span style="color: var(--color-muted); font-size: 0.8rem; margin-left: 8px;">5h ago</span>
+                </div>
               </div>
               <div class="d-flex align-center gap-2">
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: #fff8e1; color: #f57f17; display: flex; align-items: center; justify-content: center;"><i class="ph ph-warning-circle"></i></div>
-                <div style="font-size: 0.95rem;"><strong>3 employees</strong> missed their live coaching session. <span style="color: var(--color-muted); font-size: 0.8rem; margin-left: 8px;">1d ago</span></div>
+                <div
+                  style="width: 32px; height: 32px; border-radius: 50%; background: #fff8e1; color: #f57f17; display: flex; align-items: center; justify-content: center;">
+                  <i class="ph ph-warning-circle"></i></div>
+                <div style="font-size: 0.95rem;"><strong>3 employees</strong> missed their live coaching session. <span
+                    style="color: var(--color-muted); font-size: 0.8rem; margin-left: 8px;">1d ago</span></div>
               </div>
             </div>
           </div>
-          
+
         </div>
 
         <!-- View: Team Enrollment -->
@@ -490,10 +547,11 @@
                 <option value="marketing">Marketing</option>
               </select>
               <button class="btn btn-outline"><i class="ph ph-upload-simple"></i> Bulk Import CSV</button>
-              <button class="btn btn-primary" data-modal-target="modal-enroll"><i class="ph ph-plus"></i> Enroll Employee</button>
+              <button class="btn btn-primary" data-modal-target="modal-enroll"><i class="ph ph-plus"></i> Enroll
+                Employee</button>
             </div>
           </div>
-          
+
           <div class="table-container">
             <table class="data-table enrollment-table">
               <thead>
@@ -510,7 +568,10 @@
                 <tr>
                   <td>
                     <div class="d-flex align-center gap-2">
-                      <div style="width: 32px; height: 32px; border-radius: 50%; background: #ccc; overflow: hidden;"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Avatar"></div>
+                      <div style="width: 32px; height: 32px; border-radius: 50%; background: #ccc; overflow: hidden;">
+                        <img
+                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                          alt="Avatar"></div>
                       James Wilson
                     </div>
                   </td>
@@ -523,7 +584,10 @@
                 <tr>
                   <td>
                     <div class="d-flex align-center gap-2">
-                      <div style="width: 32px; height: 32px; border-radius: 50%; background: #ccc; overflow: hidden;"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Avatar"></div>
+                      <div style="width: 32px; height: 32px; border-radius: 50%; background: #ccc; overflow: hidden;">
+                        <img
+                          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+                          alt="Avatar"></div>
                       Sarah Chen
                     </div>
                   </td>
@@ -536,7 +600,10 @@
                 <tr>
                   <td>
                     <div class="d-flex align-center gap-2">
-                      <div style="width: 32px; height: 32px; border-radius: 50%; background: #ccc; overflow: hidden;"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80" alt="Avatar"></div>
+                      <div style="width: 32px; height: 32px; border-radius: 50%; background: #ccc; overflow: hidden;">
+                        <img
+                          src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80"
+                          alt="Avatar"></div>
                       Maria Garcia
                     </div>
                   </td>
@@ -553,10 +620,10 @@
 
         <!-- View: Course Progress -->
         <div id="progress" class="dashboard-view">
-           <div class="d-flex justify-between align-center mb-4">
+          <div class="d-flex justify-between align-center mb-4">
             <h3 style="font-size: 1.5rem; margin: 0;">Course Progress Tracker</h3>
           </div>
-          
+
           <div class="table-container">
             <table class="data-table">
               <thead>
@@ -576,7 +643,8 @@
                   <td>45</td>
                   <td>
                     <div class="d-flex align-center gap-2">
-                      <div style="flex-grow: 1; height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden;">
+                      <div
+                        style="flex-grow: 1; height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden;">
                         <div style="width: 92%; height: 100%; background: #2e7d32;"></div>
                       </div>
                       <span class="score-green">92%</span>
@@ -591,7 +659,8 @@
                   <td>120</td>
                   <td>
                     <div class="d-flex align-center gap-2">
-                      <div style="flex-grow: 1; height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden;">
+                      <div
+                        style="flex-grow: 1; height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden;">
                         <div style="width: 65%; height: 100%; background: #f57f17;"></div>
                       </div>
                       <span class="score-amber">65%</span>
@@ -606,7 +675,8 @@
                   <td>12</td>
                   <td>
                     <div class="d-flex align-center gap-2">
-                      <div style="flex-grow: 1; height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden;">
+                      <div
+                        style="flex-grow: 1; height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden;">
                         <div style="width: 35%; height: 100%; background: #c62828;"></div>
                       </div>
                       <span class="score-red">35%</span>
@@ -619,14 +689,14 @@
             </table>
           </div>
         </div>
-        
+
         <!-- View: CEFR Assessments -->
         <div id="assessments" class="dashboard-view">
           <div class="d-flex justify-between align-center mb-4">
             <h3 style="font-size: 1.5rem; margin: 0;">CEFR Assessment Tracking</h3>
             <button class="btn btn-outline">Schedule Assessment</button>
           </div>
-          
+
           <div class="table-container">
             <table class="data-table">
               <thead>
@@ -644,7 +714,8 @@
                   <td>James Wilson</td>
                   <td>Spanish</td>
                   <td><span class="instructor-badge">B1</span></td>
-                  <td><span class="instructor-badge" style="background: var(--color-accent); color: white;">B2</span></td>
+                  <td><span class="instructor-badge" style="background: var(--color-accent); color: white;">B2</span>
+                  </td>
                   <td><span style="color: #f57f17; font-weight: 510;">1 Level</span></td>
                   <td>Oct 01, 2025</td>
                 </tr>
@@ -652,16 +723,20 @@
                   <td>Sarah Chen</td>
                   <td>German</td>
                   <td><span class="instructor-badge">A2</span></td>
-                  <td><span class="instructor-badge" style="background: var(--color-accent); color: white;">B1</span></td>
+                  <td><span class="instructor-badge" style="background: var(--color-accent); color: white;">B1</span>
+                  </td>
                   <td><span style="color: #f57f17; font-weight: 510;">1 Level</span></td>
                   <td>Sep 15, 2025</td>
                 </tr>
-                 <tr>
+                <tr>
                   <td>Maria Garcia</td>
                   <td>English</td>
-                  <td><span class="instructor-badge" style="background: var(--color-accent); color: white;">C1</span></td>
-                  <td><span class="instructor-badge" style="background: var(--color-accent); color: white;">C1</span></td>
-                  <td><span style="color: #2e7d32; font-weight: 510;"><i class="ph ph-check-circle"></i> Met Target</span></td>
+                  <td><span class="instructor-badge" style="background: var(--color-accent); color: white;">C1</span>
+                  </td>
+                  <td><span class="instructor-badge" style="background: var(--color-accent); color: white;">C1</span>
+                  </td>
+                  <td><span style="color: #2e7d32; font-weight: 510;"><i class="ph ph-check-circle"></i> Met
+                      Target</span></td>
                   <td>Aug 20, 2025</td>
                 </tr>
               </tbody>
@@ -675,52 +750,59 @@
             <h3 style="font-size: 1.5rem; margin: 0;">Group Reports</h3>
             <button class="btn btn-primary"><i class="ph ph-plus"></i> Custom Report</button>
           </div>
-          
+
           <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
-            
+
             <div class="card">
               <h3 class="mb-2" style="font-size: 1.1rem;">Monthly Progress Summary</h3>
-              <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; flex-grow: 1;">Overview of engagement hours and module completions across all active languages.</p>
+              <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; flex-grow: 1;">Overview of
+                engagement hours and module completions across all active languages.</p>
               <div class="d-flex justify-between align-center">
                 <span style="font-size: 0.8rem; color: var(--color-muted);">Auto-generated: 1st of month</span>
-                <button class="btn btn-outline generate-report-btn" style="padding: 8px 16px; font-size: 0.85rem;">Download PDF</button>
+                <button class="btn btn-outline generate-report-btn"
+                  style="padding: 8px 16px; font-size: 0.85rem;">Download PDF</button>
               </div>
             </div>
-            
+
             <div class="card">
               <h3 class="mb-2" style="font-size: 1.1rem;">CEFR Advancement Report</h3>
-              <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; flex-grow: 1;">Detailed list of employees who have officially moved up a CEFR bracket this quarter.</p>
+              <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; flex-grow: 1;">Detailed list
+                of employees who have officially moved up a CEFR bracket this quarter.</p>
               <div class="d-flex justify-between align-center">
                 <span style="font-size: 0.8rem; color: var(--color-muted);">Last run: Oct 01</span>
-                <button class="btn btn-outline generate-report-btn" style="padding: 8px 16px; font-size: 0.85rem;">Download CSV</button>
+                <button class="btn btn-outline generate-report-btn"
+                  style="padding: 8px 16px; font-size: 0.85rem;">Download CSV</button>
               </div>
             </div>
-            
-             <div class="card">
+
+            <div class="card">
               <h3 class="mb-2" style="font-size: 1.1rem;">Executive ROI Dashboard</h3>
-              <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; flex-grow: 1;">High-level summary designed for board presentations, mapping training costs to target achievement.</p>
+              <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; flex-grow: 1;">High-level
+                summary designed for board presentations, mapping training costs to target achievement.</p>
               <div class="d-flex justify-between align-center">
                 <span style="font-size: 0.8rem; color: var(--color-muted);">Last run: Sep 30</span>
-                <button class="btn btn-outline generate-report-btn" style="padding: 8px 16px; font-size: 0.85rem;">Download PDF</button>
+                <button class="btn btn-outline generate-report-btn"
+                  style="padding: 8px 16px; font-size: 0.85rem;">Download PDF</button>
               </div>
             </div>
-            
+
           </div>
         </div>
 
         <!-- View: Placeholder for profiles, notifications, settings -->
         <div id="profiles" class="dashboard-view">
           <h3>Learner Profiles</h3>
-          <p class="lead">Select an employee from the Enrollment or Progress tabs to view their detailed profile here.</p>
+          <p class="lead">Select an employee from the Enrollment or Progress tabs to view their detailed profile here.
+          </p>
         </div>
-        
+
         <div id="notifications" class="dashboard-view">
           <h3>Notifications</h3>
           <div class="card mt-4" style="padding: 16px;">
             <p><strong>System Alert:</strong> New Business English modules available next week.</p>
           </div>
         </div>
-        
+
         <div id="settings" class="dashboard-view">
           <h3 class="mb-4">Company Settings</h3>
           <div class="card" style="max-width: 600px;">
@@ -732,7 +814,8 @@
               <div class="form-group">
                 <label class="form-label">SSO Integration</label>
                 <!-- SSO_INTEGRATION_PLACEHOLDER -->
-                <div style="padding: 16px; border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-secondary);">
+                <div
+                  style="padding: 16px; border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-secondary);">
                   <div class="d-flex justify-between align-center">
                     <span>Microsoft Entra ID (SAML)</span>
                     <span class="status-badge status-active">Connected</span>
@@ -788,4 +871,5 @@
   <script src="assets/js/dashboard.js"></script>
   <!-- GA_TAG -->
 </body>
+
 </html>

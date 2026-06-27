@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LinguaPro | Coming Soon</title>
-  
+
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
-  
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  
+
   <style>
     .countdown-timer {
       display: flex;
@@ -19,13 +20,13 @@
       justify-content: center;
       margin: 48px 0;
     }
-    
+
     .countdown-item {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    
+
     .countdown-value {
       font-size: 3rem;
       font-family: var(--font-heading);
@@ -34,45 +35,48 @@
       line-height: 1;
       margin-bottom: 8px;
     }
-    
+
     .countdown-label {
       font-size: 0.85rem;
       color: var(--color-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    
+
     .subscribe-form {
       display: flex;
       max-width: 500px;
       margin: 0 auto;
       gap: 8px;
     }
-    
+
     .subscribe-form input {
       flex-grow: 1;
     }
-    
+
     @media (max-width: 768px) {
       .countdown-timer {
         gap: 16px;
       }
+
       .countdown-value {
         font-size: 2rem;
       }
+
       .subscribe-form {
         flex-direction: column;
       }
     }
   </style>
 </head>
+
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
   <!-- Header -->
   <header class="header">
     <div class="container navbar">
       <a href="index.html" class="logo">
-        <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+        <img src="assets/images/logo.svg" alt="LinguaPro Logo" style="height: 40px; width: auto;">
       </a>
       <nav class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
@@ -95,9 +99,10 @@
     </div>
   </header>
 
-  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 0;">
+  <main
+    style="flex-grow: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 0;">
     <div class="container">
-      
+
       <!-- Decorative CEFR Rail -->
       <div style="max-width: 400px; margin: 0 auto 48px auto; opacity: 0.5;">
         <div class="cefr-rail mini" aria-label="CEFR Progress">
@@ -111,8 +116,9 @@
       </div>
 
       <h1 class="mb-3">New languages. New levels.<br>Launching soon.</h1>
-      <p class="lead" style="max-width: 600px; margin-inline: auto;">We're expanding our enterprise curriculum to include advanced technical modules for APAC region languages.</p>
-      
+      <p class="lead" style="max-width: 600px; margin-inline: auto;">We're expanding our enterprise curriculum to
+        include advanced technical modules for APAC region languages.</p>
+
       <div class="countdown-timer">
         <div class="countdown-item">
           <span class="countdown-value">14</span>
@@ -131,21 +137,23 @@
           <span class="countdown-label">Seconds</span>
         </div>
       </div>
-      
+
       <div style="margin-top: 48px;">
         <p style="margin-bottom: 16px; font-weight: 510;">Get notified when we launch</p>
-        
+
         <!-- Mailchimp embed placeholder / simulated form -->
         <form class="subscribe-form" action="#" method="POST" data-validate>
           <input type="email" class="form-control" name="email" required placeholder="Enter your work email">
           <button type="submit" class="btn btn-primary" style="white-space: nowrap;">Subscribe</button>
         </form>
-        <div class="error-message" style="max-width: 500px; margin: 8px auto 0 auto; text-align: left; display: none;">Valid email required</div>
+        <div class="error-message" style="max-width: 500px; margin: 8px auto 0 auto; text-align: left; display: none;">
+          Valid email required</div>
       </div>
-      
+
     </div>
   </main>
 
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>
