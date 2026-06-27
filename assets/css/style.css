@@ -43,7 +43,7 @@
 
 /* Dark Mode Theme */
 [data-theme="dark"] {
-  --color-secondary: #0D1B2A;
+  --color-secondary: #000000;
   --color-surface: #152236;
   --color-text: #E8F0F8;
   --color-muted: #7FA8C8;
@@ -585,6 +585,25 @@ body.user-logged-in .login-link {
   padding: calc(var(--space) * 3);
 }
 
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-toggles {
+  align-self: flex-end;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+[dir="rtl"] .auth-toggles {
+  align-self: flex-start;
+}
+
 .auth-card {
   width: 100%;
   max-width: 400px;
@@ -602,6 +621,34 @@ body.user-logged-in .login-link {
 
 .auth-card form {
   text-align: left;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: var(--transition);
+}
+
+.password-toggle:hover {
+  color: var(--color-primary);
+}
+
+[dir="rtl"] .password-toggle {
+  right: auto;
+  left: 16px;
 }
 
 .auth-divider {

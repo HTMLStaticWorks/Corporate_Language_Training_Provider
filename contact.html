@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LinguaPro | Contact Us & Request Demo</title>
-  
+
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
-  
+
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  
+
   <style>
     .contact-grid {
       display: grid;
@@ -19,7 +20,7 @@
       gap: 64px;
       margin-top: 48px;
     }
-    
+
     .contact-form-container {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
@@ -27,40 +28,58 @@
       padding: 48px;
       box-shadow: var(--shadow);
     }
-    
+
     .contact-info {
       padding: 24px 0;
+      text-align: center;
     }
-    
+
     .contact-detail {
       display: flex;
-      gap: 16px;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
       margin-bottom: 32px;
     }
-    
+
     .contact-detail i {
       font-size: 1.5rem;
       color: var(--color-primary);
-      margin-top: 4px;
     }
-    
+
     .map-placeholder {
       background: var(--color-border);
-      height: 300px;
+      height: 350px;
       border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-muted);
+      overflow: hidden;
       margin-top: 48px;
     }
-    
-    @media (max-width: 1024px) {
+
+    .map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .contact-info .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .contact-info .footer-social a:hover {
+      color: var(--color-accent) !important;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 1023px) {
       .contact-grid {
         grid-template-columns: 1fr;
+        gap: 48px;
       }
     }
-    
+
     @media (max-width: 360px) {
       .contact-form-container {
         padding: 24px 16px;
@@ -68,6 +87,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Header -->
@@ -127,39 +147,35 @@
       <div class="container">
         <div class="section-header text-center">
           <h1 class="mb-2">Get in Touch</h1>
-          <p class="lead">Whether you need a custom enterprise solution or just have a question, our team is here to help.</p>
+          <p class="lead">Whether you need a custom enterprise solution or just have a question, our team is here to
+            help.</p>
         </div>
-        
+
         <div class="contact-grid" id="demo">
           <!-- Form Column -->
           <div class="contact-form-container">
             <h2 class="mb-4 text-center">Send us a message</h2>
             <form action="#" method="POST" data-validate>
               <!-- Formspree placeholder action -->
-              
+
               <div class="form-group">
                 <label class="form-label">Full Name</label>
                 <input type="text" class="form-control" name="name" required placeholder="Jane Doe">
                 <div class="error-message">This field is required</div>
               </div>
-              
+
               <div class="form-group">
                 <label class="form-label">Company Name</label>
                 <input type="text" class="form-control" name="company" required placeholder="Acme Corp">
                 <div class="error-message">This field is required</div>
               </div>
-              
-              <div class="form-group">
-                <label class="form-label">Work Email</label>
-                <input type="email" class="form-control" name="email" required placeholder="jane@company.com">
-                <div class="error-message">Valid work email is required</div>
-              </div>
-              
+
+
               <div class="form-group">
                 <label class="form-label">Phone Number (Optional)</label>
                 <input type="tel" class="form-control" name="phone" placeholder="+1 (555) 000-0000">
               </div>
-              
+
               <div class="form-group">
                 <label class="form-label">Interest</label>
                 <select class="form-control" name="interest" required>
@@ -170,30 +186,32 @@
                 </select>
                 <div class="error-message">Please select an option</div>
               </div>
-              
+
               <div class="form-group">
                 <label class="form-label">Message</label>
-                <textarea class="form-control" name="message" rows="5" required placeholder="How can we help your team?"></textarea>
+                <textarea class="form-control" name="message" rows="5" required
+                  placeholder="How can we help your team?"></textarea>
                 <div class="error-message">Message is required</div>
               </div>
-              
+
               <button type="submit" class="btn btn-primary btn-full mt-4" style="padding: 16px;">Submit Request</button>
             </form>
           </div>
-          
+
           <!-- Contact Info Column -->
           <div class="contact-info">
             <h2 class="mb-4">Contact Information</h2>
-            
+
             <div class="contact-detail">
               <i class="ph ph-envelope-simple"></i>
               <div>
                 <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Email</h3>
                 <p style="color: var(--color-muted);">enterprise@linguapro.com</p>
                 <p style="color: var(--color-muted);">support@linguapro.com</p>
+                <p style="color: var(--color-muted);">contactt@linguapro.com</p>
               </div>
             </div>
-            
+
             <div class="contact-detail">
               <i class="ph ph-phone"></i>
               <div>
@@ -202,7 +220,7 @@
                 <p style="color: var(--color-muted);">+44 20 7123 4567 (EMEA)</p>
               </div>
             </div>
-            
+
             <div class="contact-detail">
               <i class="ph ph-map-pin"></i>
               <div>
@@ -210,17 +228,35 @@
                 <p style="color: var(--color-muted);">100 Innovation Drive<br>Suite 400<br>San Francisco, CA 94105</p>
               </div>
             </div>
-            
-            <!-- Map Placeholder -->
-            <div class="map-placeholder">
-              <!-- Google Maps iframe placeholder -->
-              <div class="text-center">
-                <i class="ph ph-map-trifold" style="font-size: 3rem; margin-bottom: 8px;"></i>
-                <p>Interactive Map Embed</p>
+
+            <!-- Social Media Info -->
+            <div class="contact-detail"
+              style="margin-top: 40px; border-top: 1px solid var(--color-border); padding-top: 24px; width: 100%;">
+              <div>
+                <h3 style="font-size: 1.1rem; margin-bottom: 16px;">Connect With Us</h3>
+                <div class="footer-social" style="justify-content: center; gap: 16px; margin: 0; padding: 0;">
+                  <a href="#" aria-label="LinkedIn"
+                    style="color: var(--color-primary); font-size: 1.5rem; transition: var(--transition);"><i
+                      class="ph ph-linkedin-logo"></i></a>
+                  <a href="#" aria-label="X"
+                    style="color: var(--color-primary); font-size: 1.5rem; transition: var(--transition);"><i
+                      class="ph ph-x-logo"></i></a>
+                  <a href="#" aria-label="YouTube"
+                    style="color: var(--color-primary); font-size: 1.5rem; transition: var(--transition);"><i
+                      class="ph ph-youtube-logo"></i></a>
+                </div>
               </div>
             </div>
-            
+
           </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="map-placeholder">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086307406206!2d-122.3983226!3d37.7858342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807d77f4f6b5%3A0x6b77bb2d54e4c278!2s100%20Innovation%20Dr%2C%20San%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>
@@ -234,7 +270,8 @@
           <a href="index.html" class="logo mb-3">
             <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
           </a>
-          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; max-width: 250px;">Precision language training for the modern global enterprise.</p>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; max-width: 250px;">Precision
+            language training for the modern global enterprise.</p>
           <div class="footer-social">
             <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
             <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
@@ -277,4 +314,5 @@
 
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>

@@ -1,87 +1,138 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LinguaPro | Register</title>
-  
+
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
-  
+
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
+
 <body class="auth-page">
 
-  <div class="auth-card">
-    <!-- Logo -->
-    <a href="index.html" class="logo">
-      <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
-    </a>
-    
-    <h2 class="mb-4 text-center" style="font-size: 1.5rem;">Create your account</h2>
-    
-    <!-- Register Form -->
-    <form action="#" method="POST" data-validate>
-      <div class="form-group">
-        <label class="form-label">Full Name</label>
-        <input type="text" class="form-control" name="name" required placeholder="John Doe">
-        <div class="error-message">Name is required</div>
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">Work Email</label>
-        <input type="email" class="form-control" name="email" required placeholder="name@company.com">
-        <div class="error-message">Valid work email is required</div>
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">Company Name</label>
-        <input type="text" class="form-control" name="company" required placeholder="Acme Corp">
-        <div class="error-message">Company name is required</div>
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" name="password" required minlength="8" placeholder="Min. 8 characters">
-        <div class="error-message">Password is required (min 8 chars)</div>
-      </div>
-      
-      <div class="form-group">
-        <label class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" name="confirm_password" required placeholder="••••••••">
-        <div class="error-message">Passwords do not match</div>
-      </div>
-      
-      <div class="form-group">
-        <label class="checkbox-label" style="align-items: flex-start;">
-          <input type="checkbox" name="terms" required style="margin-top: 4px;"> 
-          <span style="font-size: 0.85rem; color: var(--color-muted);">I accept the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
-        </label>
-        <div class="error-message">You must accept the terms</div>
-      </div>
-      
-      <button type="submit" class="btn btn-primary btn-full mb-3">Create Account</button>
-    </form>
-    
-    <!-- Divider -->
-    <div class="auth-divider">or</div>
-    
-    <!-- SSO -->
-    <button class="btn btn-google btn-full">
-      <i class="ph-fill ph-google-logo" style="color: #DB4437; font-size: 1.2rem;"></i> Continue with Google
-    </button>
-    
-    <button class="btn btn-microsoft btn-full" style="margin-bottom: 32px;">
-      <i class="ph-fill ph-windows-logo" style="color: #00A4EF; font-size: 1.2rem;"></i> Continue with Microsoft
-    </button>
-    
-    <div style="font-size: 0.9rem; color: var(--color-muted);">
-      Already have an account? <a href="login.html" style="font-weight: 510;">Login here</a>
+  <div class="auth-container">
+    <!-- Auth Toggles -->
+    <div class="auth-toggles">
+      <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+      <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
     </div>
-  </div>
 
-  <script src="assets/js/main.js"></script>
+    <div class="auth-card">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+      </a>
+
+      <h2 class="mb-4 text-center" style="font-size: 1.5rem;">Create your account</h2>
+
+      <!-- Register Form -->
+      <form action="#" method="POST" data-validate>
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" name="name" required placeholder="">
+          <div class="error-message">Name is required</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" required placeholder="">
+          <div class="error-message">Valid email is required</div>
+        </div>
+
+
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="password-wrapper">
+            <input type="password" class="form-control" name="password" id="password-field" required minlength="8"
+              placeholder="">
+            <button type="button" class="password-toggle" onclick="togglePasswordVisibility('password-field', this)"
+              aria-label="Toggle Password Visibility">
+              <i class="ph ph-eye"></i>
+            </button>
+          </div>
+          <div class="error-message">Password is required (min 8 chars)</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Confirm Password</label>
+          <div class="password-wrapper">
+            <input type="password" class="form-control" name="confirm_password" id="confirm-password-field" required
+              placeholder="">
+            <button type="button" class="password-toggle"
+              onclick="togglePasswordVisibility('confirm-password-field', this)"
+              aria-label="Toggle Confirm Password Visibility">
+              <i class="ph ph-eye"></i>
+            </button>
+          </div>
+          <div class="error-message">Passwords do not match</div>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label" style="align-items: flex-start;">
+            <input type="checkbox" name="terms" required style="margin-top: 4px;">
+            <span style="font-size: 0.85rem; color: var(--color-muted);">I accept the <a href="#">Terms & Conditions</a>
+              and <a href="#">Privacy Policy</a></span>
+          </label>
+          <div class="error-message">You must accept the terms</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full mb-3">Create Account</button>
+      </form>
+
+      <!-- Divider -->
+      <div class="auth-divider">or</div>
+
+      <!-- SSO -->
+      <button class="btn btn-google btn-full"
+        style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18">
+          <path fill="#4285F4"
+            d="M17.64 9.2c0-.63-.06-1.25-.16-1.84H9v3.47h4.84c-.21 1.12-.84 2.07-1.79 2.7v2.24h2.9c1.7-1.57 2.69-3.88 2.69-6.57z" />
+          <path fill="#34A853"
+            d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.24c-.8.54-1.84.87-3.06.87-2.35 0-4.33-1.58-5.04-3.71H.92v2.32C2.4 15.97 5.51 18 9 18z" />
+          <path fill="#FBBC05"
+            d="M3.96 10.74A5.4 5.4 0 0 1 3.6 9c0-.6.1-1.2.27-1.74V4.94H.92A8.99 8.99 0 0 0 0 9c0 1.48.36 2.89.99 4.14l2.97-2.4z" />
+          <path fill="#EA4335"
+            d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.59C13.47.89 11.43 0 9 0 5.51 0 2.4 2.03.92 4.94l2.97 2.32c.71-2.13 2.69-3.71 5.04-3.71z" />
+        </svg>
+        Continue with Google
+      </button>
+
+      <button class="btn btn-microsoft btn-full"
+        style="margin-bottom: 32px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+          <path
+            d="M15.56 9.4c-.04-2.2 1.8-3.26 1.88-3.32-1.02-1.5-2.62-1.7-3.18-1.74-1.34-.14-2.62.8-3.3.8-.68 0-1.74-.78-2.86-.76-1.48.02-2.84.86-3.6 2.18-1.54 2.68-.4 6.64 1.1 8.8 1.48 2.12 2.64 3.64 3.76 3.6 1.08-.04 1.5-.7 2.8-.7s1.68.7 2.8.66c1.14-.02 2.18-1.38 2.92-2.46.86-1.24 1.2-2.44 1.22-2.5-.04-.02-2.34-.9-2.38-3.56zM12.92 2.9c.6-.74 1.02-1.76.9-2.78-.88.04-1.94.58-2.58 1.34-.56.66-1.04 1.68-.92 2.7.98.08 1.98-.48 2.6-1.26z" />
+        </svg>
+        Continue with Apple
+      </button>
+
+      <div style="font-size: 0.9rem; color: var(--color-muted);">
+        Already have an account? <a href="login.html" style="font-weight: 510;">Login here</a>
+      </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+      function togglePasswordVisibility(fieldId, button) {
+        const field = document.getElementById(fieldId);
+        const icon = button.querySelector('i');
+        if (field.type === 'password') {
+          field.type = 'text';
+          icon.className = 'ph ph-eye-slash';
+        } else {
+          field.type = 'password';
+          icon.className = 'ph ph-eye';
+        }
+      }
+    </script>
 </body>
+
 </html>
