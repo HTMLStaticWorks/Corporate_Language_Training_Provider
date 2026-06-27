@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaPro | Login</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="auth-page">
+
+  <div class="auth-card">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+    </a>
+    
+    <h2 class="mb-4 text-center" style="font-size: 1.5rem;">Sign in to your account</h2>
+    
+    <!-- Login Form -->
+    <form action="#" method="POST" data-validate onsubmit="simulateLogin(event)">
+      <div class="form-group">
+        <label class="form-label">Work Email</label>
+        <input type="email" class="form-control" name="email" required placeholder="name@company.com">
+        <div class="error-message">Valid work email is required</div>
+      </div>
+      
+      <div class="form-group mb-2">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" required placeholder="••••••••">
+        <div class="error-message">Password is required</div>
+      </div>
+      
+      <div class="d-flex" style="justify-content: flex-end; margin-bottom: 24px;">
+        <a href="#" style="font-size: 0.85rem; font-weight: 510;">Forgot password?</a>
+      </div>
+      
+      <button type="submit" class="btn btn-primary btn-full">Login</button>
+    </form>
+    
+    <!-- Divider -->
+    <div class="auth-divider">or</div>
+    
+    <!-- SSO -->
+    <button class="btn btn-google btn-full">
+      <i class="ph-fill ph-google-logo" style="color: #DB4437; font-size: 1.2rem;"></i> Continue with Google
+    </button>
+    
+    <button class="btn btn-microsoft btn-full" style="margin-bottom: 32px;">
+      <i class="ph-fill ph-windows-logo" style="color: #00A4EF; font-size: 1.2rem;"></i> Continue with Microsoft
+    </button>
+    
+    <div style="font-size: 0.9rem; color: var(--color-muted);">
+      Don't have an account? <a href="register.html" style="font-weight: 510;">Register here</a>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function simulateLogin(e) {
+      e.preventDefault();
+      // Only set localstorage if validation passes (main.js handles validation first, 
+      // but to be safe, we'll just check if the form is valid)
+      if (e.target.checkValidity()) {
+        localStorage.setItem('linguapro-logged-in', 'true');
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 1000); // Redirect after small delay
+      }
+    }
+  </script>
+</body>
+</html>

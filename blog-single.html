@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaPro | How to Measure the ROI of Language Training</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <style>
+    .article-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 48px auto;
+    }
+    
+    .article-meta {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      margin-top: 24px;
+    }
+    
+    .article-hero-img {
+      width: 100%;
+      height: 500px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      margin-bottom: 64px;
+    }
+    
+    .article-content {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .article-content h2 {
+      margin-top: 48px;
+      margin-bottom: 24px;
+      font-size: 2rem;
+    }
+    
+    .article-content p {
+      margin-bottom: 24px;
+    }
+    
+    .article-content ul {
+      list-style: disc;
+      padding-left: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .article-content li {
+      margin-bottom: 12px;
+    }
+    
+    .article-content blockquote {
+      border-left: 4px solid var(--color-accent);
+      padding-left: 24px;
+      font-style: italic;
+      color: var(--color-muted);
+      margin: 32px 0;
+      font-size: 1.25rem;
+    }
+    
+    .author-bio {
+      max-width: 760px;
+      margin: 64px auto 0 auto;
+      padding: 32px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    
+    .author-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    @media (max-width: 768px) {
+      .article-hero-img {
+        height: 300px;
+      }
+      .author-bio {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="desktop-toggles d-flex gap-2">
+          <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+          <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+        </div>
+        <a href="login.html" class="btn btn-primary login-link">Login</a>
+        <button class="icon-btn hamburger" aria-label="Open Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Drawer -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <button class="icon-btn drawer-close" aria-label="Close Menu"><i class="ph ph-x"></i></button>
+    <div class="drawer-content">
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="drawer-toggles">
+        <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+      </div>
+      <div class="drawer-actions">
+        <a href="login.html" class="btn btn-primary btn-full login-link">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <main style="padding-top: 120px;">
+    <article>
+      <div class="container">
+        <!-- Header -->
+        <div class="article-header">
+          <span style="font-size: 0.8rem; background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-weight: 510; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: inline-block;">Enterprise L&D</span>
+          <h1 class="mb-3">How to Measure the ROI of Language Training</h1>
+          <p class="lead">Stop relying on vanity metrics. Learn how to map CEFR advancements directly to business outcomes, productivity gains, and retention rates.</p>
+          
+          <div class="article-meta">
+            <span><i class="ph ph-user"></i> Sarah Jenkins</span>
+            <span><i class="ph ph-calendar"></i> Oct 12, 2025</span>
+            <span><i class="ph ph-clock"></i> 8 min read</span>
+          </div>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80" alt="Team reviewing data" class="article-hero-img">
+
+        <!-- Content -->
+        <div class="article-content">
+          <p>For decades, L&D departments have struggled to justify language training budgets. The standard metrics—hours spent in an app, or self-reported confidence levels—are not enough to satisfy the CFO. To secure executive buy-in, HR and L&D leaders must translate language acquisition into tangible business outcomes.</p>
+          
+          <h2>The Problem with Vanity Metrics</h2>
+          <p>Many popular language apps provide dashboards that track "streaks," "points," and "badges." While these gamification elements are excellent for daily motivation, they do not correlate with a person's ability to negotiate a contract in German or manage a supply chain crisis in Mandarin.</p>
+          <p>When leadership asks for the ROI of the training program, reporting that the team earned 50,000 points last quarter does not answer the fundamental question: <em>Are they better at their jobs?</em></p>
+          
+          <blockquote>"If you can't map the language training to a recognized global standard, you are essentially flying blind."</blockquote>
+
+          <h2>Using the CEFR Framework as a Baseline</h2>
+          <p>The Common European Framework of Reference for Languages (CEFR) is the international standard for describing language ability. It classifies language proficiency across six levels, from A1 (Beginner) to C2 (Mastery).</p>
+          <ul>
+            <li><strong>A1/A2 (Basic User):</strong> Can handle simple, routine exchanges.</li>
+            <li><strong>B1/B2 (Independent User):</strong> Can negotiate, present, and handle complex work situations (The "Business Fluent" sweet spot).</li>
+            <li><strong>C1/C2 (Proficient User):</strong> Can handle highly nuanced, academic, or high-stakes diplomatic communication.</li>
+          </ul>
+          
+          <p>By assessing employees against the CEFR standard before training begins, you establish a concrete baseline. You can then set target levels based on the employee's role.</p>
+
+          <h2>Translating CEFR to Business Outcomes</h2>
+          <p>Once you track CEFR advancements, you can correlate them with specific business KPIs:</p>
+          <ol>
+            <li><strong>Productivity:</strong> Measure the time saved on translation services or the reduction in back-and-forth clarification emails once a team reaches B2 level.</li>
+            <li><strong>Market Expansion:</strong> Correlate the number of C1 speakers in a regional office with the speed of market penetration in that region.</li>
+            <li><strong>Retention:</strong> Studies show that employees who receive employer-sponsored professional development are 34% more likely to stay with the company.</li>
+          </ol>
+          
+          <p>At LinguaPro, our HR Dashboard automates this process. We don't just show you who logged in; we show you the gap between your team's current CEFR level and the level required to execute your global strategy.</p>
+        </div>
+        
+        <!-- Author -->
+        <div class="author-bio">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Sarah Jenkins" class="author-img">
+          <div>
+            <h3 style="margin-bottom: 8px; font-size: 1.25rem;">Sarah Jenkins</h3>
+            <p style="color: var(--color-muted); font-size: 0.95rem; margin-bottom: 0;">Sarah is the VP of HR at TechGlobal and a frequent contributor to LinguaPro Insights. She specializes in aligning L&D initiatives with enterprise growth strategies.</p>
+          </div>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" style="margin-top: 100px;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-3">
+            <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+          </a>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; max-width: 250px;">Precision language training for the modern global enterprise.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="enterprise.html">Enterprise</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 LinguaPro. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

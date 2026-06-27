@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaPro | Register</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="auth-page">
+
+  <div class="auth-card">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+    </a>
+    
+    <h2 class="mb-4 text-center" style="font-size: 1.5rem;">Create your account</h2>
+    
+    <!-- Register Form -->
+    <form action="#" method="POST" data-validate>
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" name="name" required placeholder="John Doe">
+        <div class="error-message">Name is required</div>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Work Email</label>
+        <input type="email" class="form-control" name="email" required placeholder="name@company.com">
+        <div class="error-message">Valid work email is required</div>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Company Name</label>
+        <input type="text" class="form-control" name="company" required placeholder="Acme Corp">
+        <div class="error-message">Company name is required</div>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" required minlength="8" placeholder="Min. 8 characters">
+        <div class="error-message">Password is required (min 8 chars)</div>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" name="confirm_password" required placeholder="••••••••">
+        <div class="error-message">Passwords do not match</div>
+      </div>
+      
+      <div class="form-group">
+        <label class="checkbox-label" style="align-items: flex-start;">
+          <input type="checkbox" name="terms" required style="margin-top: 4px;"> 
+          <span style="font-size: 0.85rem; color: var(--color-muted);">I accept the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
+        </label>
+        <div class="error-message">You must accept the terms</div>
+      </div>
+      
+      <button type="submit" class="btn btn-primary btn-full mb-3">Create Account</button>
+    </form>
+    
+    <!-- Divider -->
+    <div class="auth-divider">or</div>
+    
+    <!-- SSO -->
+    <button class="btn btn-google btn-full">
+      <i class="ph-fill ph-google-logo" style="color: #DB4437; font-size: 1.2rem;"></i> Continue with Google
+    </button>
+    
+    <button class="btn btn-microsoft btn-full" style="margin-bottom: 32px;">
+      <i class="ph-fill ph-windows-logo" style="color: #00A4EF; font-size: 1.2rem;"></i> Continue with Microsoft
+    </button>
+    
+    <div style="font-size: 0.9rem; color: var(--color-muted);">
+      Already have an account? <a href="login.html" style="font-weight: 510;">Login here</a>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

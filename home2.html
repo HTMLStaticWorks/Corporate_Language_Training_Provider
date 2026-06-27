@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaPro | Home 2</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    /* Home 2 Specific Layouts */
+    .split-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      align-items: center;
+      padding-top: 80px;
+      /* Header height */
+    }
+
+    @media (max-width: 1200px) and (min-width: 1024px) {
+      .split-hero {
+        min-height: 70vh;
+      }
+    }
+
+    .split-hero-content {
+      padding: 0 calc(var(--space) * 6);
+      text-align: center;
+    }
+
+    .split-hero-image {
+      height: 100%;
+      background: var(--color-border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .split-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: transform 0.5s ease-out;
+    }
+
+    .split-hero-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Masonry Feature Grid */
+    .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    @media (min-width: 1025px) {
+      .masonry-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 200px;
+      }
+
+      .masonry-item:nth-child(1) {
+        grid-row: span 2;
+      }
+
+      .masonry-item:nth-child(2) {
+        grid-row: span 1;
+      }
+
+      .masonry-item:nth-child(3) {
+        grid-row: span 2;
+      }
+
+      .masonry-item:nth-child(4) {
+        grid-row: span 2;
+      }
+
+      .masonry-item:nth-child(5) {
+        grid-row: span 2;
+      }
+
+      .masonry-item:nth-child(6) {
+        grid-row: span 1;
+      }
+    }
+
+    /* Language Selector */
+    .lang-selector {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 16px;
+      margin-bottom: 32px;
+      scrollbar-width: none;
+      justify-content: center;
+      /* Firefox */
+    }
+
+    .curriculums-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .curriculums-grid .card {
+      text-align: center;
+    }
+
+    .curriculums-grid .card .d-flex {
+      justify-content: center;
+    }
+
+    .curriculums-grid .cefr-rail {
+      justify-content: center;
+    }
+
+    .card-img-wrapper {
+      height: 180px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+      .card-img-wrapper {
+        height: 220px;
+      }
+    }
+
+    .lang-selector::-webkit-scrollbar {
+      display: none;
+    }
+
+    .lang-btn {
+      padding: 12px 24px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 40px;
+      /* exception for pill in this specific selector component */
+      white-space: nowrap;
+      cursor: pointer;
+      font-weight: 510;
+      color: var(--color-text);
+      transition: var(--transition);
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+
+    /* Horizontal Card */
+    .horizontal-card {
+      display: flex;
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+
+    .horizontal-card-img {
+      width: 40%;
+      background: #ccc;
+    }
+
+    .horizontal-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .horizontal-card-content {
+      width: 60%;
+      padding: 48px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Instructor Scroll */
+    .instructor-scroll {
+      display: flex;
+      gap: 32px;
+      overflow-x: auto;
+      padding-bottom: 24px;
+    }
+
+    .instructor-scroll::-webkit-scrollbar {
+      height: 8px;
+      display: block;
+    }
+
+    .instructor-scroll::-webkit-scrollbar-track {
+      background: var(--color-secondary);
+      border-radius: var(--radius);
+    }
+
+    .instructor-scroll::-webkit-scrollbar-thumb {
+      background: var(--color-border);
+      border-radius: var(--radius);
+    }
+
+    .instructor-scroll::-webkit-scrollbar-thumb:hover {
+      background: var(--color-muted);
+    }
+
+    .instructor-card {
+      min-width: 300px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 1023px) {
+      .split-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .split-hero-image {
+        grid-row: 1;
+        min-height: 400px;
+      }
+
+      .split-hero-content {
+        grid-row: 2;
+        padding: 48px 24px;
+      }
+
+      .horizontal-card {
+        flex-direction: column;
+      }
+
+      .horizontal-card-img,
+      .horizontal-card-content {
+        width: 100%;
+      }
+
+      .horizontal-card-img {
+        height: 300px;
+      }
+    }
+
+    /* Equal grid override for Why Choose section */
+    .equal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    @media (min-width: 1025px) {
+      .equal-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .equal-grid .card {
+      height: 100%;
+      text-align: center;
+    }
+
+    @media (max-width: 576px) {
+      .lang-selector {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        overflow-x: visible;
+        padding-bottom: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header & Navbar (Same as index) -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link active">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="desktop-toggles d-flex gap-2">
+          <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="ph ph-moon"></i>
+          </button>
+          <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+            <i class="ph ph-arrows-left-right"></i>
+          </button>
+        </div>
+        <a href="login.html" class="btn btn-primary login-link">Login</a>
+
+        <button class="icon-btn hamburger" aria-label="Open Menu">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hamburger Drawer (Same as index) -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <button class="icon-btn drawer-close" aria-label="Close Menu">
+      <i class="ph ph-x"></i>
+    </button>
+    <div class="drawer-content">
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link active">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+
+      <div class="drawer-toggles">
+        <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode">
+          <i class="ph ph-moon"></i>
+        </button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+      </div>
+
+      <div class="drawer-actions">
+        <a href="login.html" class="btn btn-primary btn-full login-link">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Split Hero -->
+    <section class="split-hero" style="padding-bottom: 0; padding-top: 80px;">
+      <div class="split-hero-content animate-fade-up">
+        <h1 style="font-style: italic; margin-bottom: 24px;">Elevate global communication.</h1>
+        <p class="lead mb-4" style="max-width: 500px;">Transform your workforce with data-driven language training that
+          aligns with your strategic business goals.</p>
+
+        <div class="d-flex gap-2" style="justify-content: center; margin-inline: auto;">
+          <a href="enterprise.html" class="btn btn-primary">Discover Enterprise</a>
+          <a href="courses.html" class="btn btn-outline">Explore Courses</a>
+        </div>
+      </div>
+
+      <div class="split-hero-image">
+        <img src="assets/images/home2-hero.jpg" alt="HR Dashboard Interface Mockup">
+      </div>
+    </section>
+
+    <!-- Stats Band -->
+    <section style="background-color: var(--color-primary); color: #fff; padding: 60px 0;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 32px; text-align: center;">
+          <div>
+            <div style="font-size: 3rem; font-family: var(--font-heading); font-weight: 540;"><span class="stat-number"
+                data-target="250">0</span>+</div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">Enterprise Clients</div>
+          </div>
+          <div>
+            <div style="font-size: 3rem; font-family: var(--font-heading); font-weight: 540;"><span class="stat-number"
+                data-target="150">0</span>k</div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">Active Learners</div>
+          </div>
+          <div>
+            <div style="font-size: 3rem; font-family: var(--font-heading); font-weight: 540;"><span class="stat-number"
+                data-target="40">0</span></div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">Languages Supported</div>
+          </div>
+          <div>
+            <div style="font-size: 3rem; font-family: var(--font-heading); font-weight: 540;"><span class="stat-number"
+                data-target="98">0</span>%</div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">Satisfaction Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Grid -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Choose LinguaPro</h2>
+        </div>
+
+        <div class="equal-grid">
+
+          <!-- Card 1: Analytics -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/feature-analytics.jpg" alt="Analytics Dashboard"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 24px;">
+              <i class="ph ph-chart-bar"
+                style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 16px;"></i>
+              <h3 class="mb-2">Advanced Analytics</h3>
+              <p class="lead" style="font-size: 1rem;">Track engagement, completion rates, and proficiency milestones in
+                real-time through the HR dashboard.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: CEFR Aligned -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/feature-cefr.jpg" alt="CEFR Framework"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 24px;">
+              <i class="ph ph-graduation-cap"
+                style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 16px;"></i>
+              <h3 class="mb-2">CEFR Aligned</h3>
+              <p class="lead" style="font-size: 1rem;">Internationally recognized standards for every course.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Live Instruction -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/feature-live.jpg" alt="Live Instruction Session"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 24px;">
+              <i class="ph ph-video-camera"
+                style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 16px;"></i>
+              <h3 class="mb-2">Live Instruction</h3>
+              <p class="lead" style="font-size: 1rem;">1-on-1 or group sessions with certified native speakers.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Global Scale -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/feature-global.jpg" alt="Global Scale"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 24px;">
+              <i class="ph ph-globe" style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 16px;"></i>
+              <h3 class="mb-2">Global Scale</h3>
+              <p class="lead" style="font-size: 1rem;">Deploy consistently across all your international offices.</p>
+            </div>
+          </div>
+
+          <!-- Card 5: Certification -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/feature-cert.jpg" alt="Official Certification"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 24px;">
+              <i class="ph ph-certificate"
+                style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 16px;"></i>
+              <h3 class="mb-2">Official Certification</h3>
+              <p class="lead" style="font-size: 1rem;">Provide employees with verifiable credentials upon level
+                completion.</p>
+            </div>
+          </div>
+
+          <!-- Card 6: SSO Ready -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/feature-sso.jpg" alt="SSO Integration"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 24px;">
+              <i class="ph ph-plugs-connected"
+                style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 16px;"></i>
+              <h3 class="mb-2">SSO Ready</h3>
+              <p class="lead" style="font-size: 1rem;">Seamless integration with your existing stack.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Study Spotlight -->
+    <section>
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Case Study Spotlight</h2>
+        </div>
+        <div class="horizontal-card">
+          <div class="horizontal-card-img">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+              alt="Team meeting">
+          </div>
+          <div class="horizontal-card-content">
+            <div
+              style="font-size: 0.85rem; color: var(--color-primary); font-weight: 510; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">
+              Case Study</div>
+            <h2 class="mb-3">How FinCorp accelerated global integration by 40%</h2>
+            <p class="lead mb-4">By deploying targeted CEFR-aligned training to 500+ employees across 12 countries,
+              FinCorp unified their corporate communication.</p>
+
+            <div style="display: flex; gap: 32px; margin-bottom: 32px; justify-content: center;">
+              <div>
+                <div style="font-weight: 510; color: var(--color-accent); font-size: 1.5rem;">+40%</div>
+                <div style="font-size: 0.85rem; color: var(--color-muted);">Productivity</div>
+              </div>
+              <div>
+                <div style="font-weight: 510; color: var(--color-accent); font-size: 1.5rem;">B2</div>
+                <div style="font-size: 0.85rem; color: var(--color-muted);">Avg. CEFR Level</div>
+              </div>
+            </div>
+
+            <a href="blog-single.html" class="btn btn-primary">Read Full Case Study</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Language Selector Strip & Previews -->
+    <section style="background-color: var(--color-surface); border-top: 1px solid var(--color-border);">
+      <div class="container">
+        <h2 class="mb-4 text-center">Popular Curriculums</h2>
+
+        <div class="lang-selector">
+          <button class="lang-btn active">English</button>
+          <button class="lang-btn">Spanish</button>
+          <button class="lang-btn">Mandarin</button>
+          <button class="lang-btn">German</button>
+          <button class="lang-btn">French</button>
+          <button class="lang-btn">Japanese</button>
+        </div>
+
+        <div class="curriculums-grid">
+
+          <!-- Card 1: English for Sales -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div class="card-img-wrapper">
+              <img src="assets/images/curriculum-english-sales.jpg" alt="English for Sales"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 28px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;">Business</span>
+              </div>
+              <h3 class="card-title">English for Sales</h3>
+              <div class="cefr-rail mini" aria-label="CEFR B1 to C1">
+                <span class="cefr-node">A1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">A2</span><span class="cefr-connector"></span>
+                <span class="cefr-node current">B1</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">B2</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">C1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C2</span>
+              </div>
+              <a href="courses.html" class="btn btn-outline btn-full mt-4">View Details</a>
+            </div>
+          </div>
+
+          <!-- Card 2: English for IT -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div class="card-img-wrapper">
+              <img src="assets/images/curriculum-english-it.jpg" alt="English for IT"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 28px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;">Technical</span>
+              </div>
+              <h3 class="card-title">English for IT</h3>
+              <div class="cefr-rail mini" aria-label="CEFR A2 to B2">
+                <span class="cefr-node">A1</span><span class="cefr-connector"></span>
+                <span class="cefr-node current">A2</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">B1</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">B2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C2</span>
+              </div>
+              <a href="courses.html" class="btn btn-outline btn-full mt-4">View Details</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- Instructor Profiles Scroll -->
+    <section style="background-color: var(--color-surface); overflow: hidden;">
+      <div class="container">
+        <div class="section-header">
+          <h2>Learn from the Best</h2>
+          <a href="instructors.html" class="btn btn-text">View All Instructors <i class="ph ph-arrow-right"></i></a>
+        </div>
+
+        <div class="instructor-scroll">
+
+          <!-- Instructor 1 -->
+          <div class="card instructor-card">
+            <img src="assets/images/instructor-elena.jpg" alt="Elena Garcia"
+              style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 16px;">
+            <h3 class="mb-1" style="font-size: 1.25rem;">Elena Garcia</h3>
+            <p style="color: var(--color-primary); font-weight: 510; font-size: 0.9rem; margin-bottom: 16px;">Spanish
+              (Native) • English (C2)</p>
+            <p style="color: var(--color-muted); font-size: 0.9rem;">Specializes in corporate negotiation and
+              cross-cultural communication.</p>
+          </div>
+
+          <!-- Instructor 2 -->
+          <div class="card instructor-card">
+            <img src="assets/images/instructor-david.jpg" alt="David Kim"
+              style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 16px;">
+            <h3 class="mb-1" style="font-size: 1.25rem;">David Kim</h3>
+            <p style="color: var(--color-primary); font-weight: 510; font-size: 0.9rem; margin-bottom: 16px;">English
+              (Native) • Mandarin (C1)</p>
+            <p style="color: var(--color-muted); font-size: 0.9rem;">Former Tech Exec turned language coach for IT
+              professionals.</p>
+          </div>
+
+          <!-- Instructor 3 -->
+          <div class="card instructor-card">
+            <img src="assets/images/instructor-marie.jpg" alt="Marie Laurent"
+              style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 16px;">
+            <h3 class="mb-1" style="font-size: 1.25rem;">Marie Laurent</h3>
+            <p style="color: var(--color-primary); font-weight: 510; font-size: 0.9rem; margin-bottom: 16px;">French
+              (Native) • German (C2)</p>
+            <p style="color: var(--color-muted); font-size: 0.9rem;">Expert in EU regulatory terminology and diplomatic
+              communication.</p>
+          </div>
+
+          <!-- Instructor 4 -->
+          <div class="card instructor-card">
+            <img src="assets/images/instructor-lars.jpg" alt="Lars Visser"
+              style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 16px;">
+            <h3 class="mb-1" style="font-size: 1.25rem;">Lars Visser</h3>
+            <p style="color: var(--color-primary); font-weight: 510; font-size: 0.9rem; margin-bottom: 16px;">German
+              (Native) • English (C2)</p>
+            <p style="color: var(--color-muted); font-size: 0.9rem;">Specialized in technical engineering vocabulary.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (Same as index) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-3">
+            <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+          </a>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; max-width: 250px;">Precision
+            language training for the modern global enterprise.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="instructors.html">Instructors</a></li>
+            <li><a href="enterprise.html">Enterprise Solutions</a></li>
+            <li><a href="enterprise.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">GDPR Compliance</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2025 LinguaPro. All rights reserved. CEFR is a registered trademark of the Council of Europe.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

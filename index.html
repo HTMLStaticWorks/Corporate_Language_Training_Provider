@@ -1,1 +1,568 @@
-Corporate_Language_Training_Provider
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaPro | Language Skills That Drive Business Results</title>
+  <meta name="description"
+    content="Corporate language training provider offering CEFR-aligned curriculum, measurable outcomes, and an HR Manager Dashboard for enterprise teams.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    .hero-bg {
+      position: relative;
+      background-image: url('assets/images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(240, 244, 250, 0.65);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-theme="dark"] .hero-bg::before {
+      background: rgba(13, 27, 42, 0.88);
+    }
+
+    .hero-bg .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .how-it-works-grid .card:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header & Navbar -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="desktop-toggles d-flex gap-2">
+          <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="ph ph-moon"></i>
+          </button>
+          <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+            <i class="ph ph-arrows-left-right"></i>
+          </button>
+        </div>
+        <a href="login.html" class="btn btn-primary login-link">Login</a>
+
+        <button class="icon-btn hamburger" aria-label="Open Menu">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hamburger Drawer -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <button class="icon-btn drawer-close" aria-label="Close Menu">
+      <i class="ph ph-x"></i>
+    </button>
+    <div class="drawer-content">
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+
+      <div class="drawer-toggles">
+        <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode">
+          <i class="ph ph-moon"></i>
+        </button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+      </div>
+
+      <div class="drawer-actions">
+        <a href="login.html" class="btn btn-primary btn-full login-link">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section class="hero hero-bg" style="padding-top: 140px; padding-bottom: 100px; text-align: center;">
+      <div class="container animate-fade-up">
+        <h1 class="mb-3" style="max-width: 900px; margin-inline: auto;">Language Skills That Drive Business Results.
+        </h1>
+        <p class="lead mb-4" style="max-width: 600px; margin-inline: auto;">Empower your workforce with CEFR-aligned
+          training, measurable outcomes, and an HR dashboard built for enterprise scale.</p>
+
+        <!-- Animated CEFR Rail -->
+        <div style="max-width: 600px; margin: 40px auto;">
+          <div class="cefr-rail hero-cefr-rail" aria-label="CEFR Levels A1 to C2">
+            <span class="cefr-node" data-level="A1">A1</span>
+            <span class="cefr-connector"></span>
+            <span class="cefr-node" data-level="A2">A2</span>
+            <span class="cefr-connector"></span>
+            <span class="cefr-node" data-level="B1">B1</span>
+            <span class="cefr-connector"></span>
+            <span class="cefr-node" data-level="B2">B2</span>
+            <span class="cefr-connector"></span>
+            <span class="cefr-node" data-level="C1">C1</span>
+            <span class="cefr-connector"></span>
+            <span class="cefr-node" data-level="C2">C2</span>
+          </div>
+        </div>
+
+        <div class="d-flex align-center gap-2 mb-4" style="justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html#demo" class="btn btn-primary">Request Demo</a>
+          <a href="courses.html" class="btn btn-outline">View Courses</a>
+        </div>
+
+        <div class="hero-stats d-flex gap-2" style="justify-content: center; flex-wrap: wrap; margin-top: 60px;">
+          <div class="stat-item" style="padding: 0 24px;">
+            <div
+              style="font-size: 2rem; font-family: var(--font-heading); font-weight: 520; color: var(--color-primary);">
+              <span class="stat-number" data-target="94">0</span>%
+            </div>
+            <div style="font-size: 0.9rem; color: var(--color-muted);">Completion Rate</div>
+          </div>
+          <div style="width: 1px; background: var(--color-border);"></div>
+          <div class="stat-item" style="padding: 0 24px;">
+            <div
+              style="font-size: 2rem; font-family: var(--font-heading); font-weight: 520; color: var(--color-primary);">
+              <span class="stat-number" data-target="40">0</span>+
+            </div>
+            <div style="font-size: 0.9rem; color: var(--color-muted);">Languages</div>
+          </div>
+          <div style="width: 1px; background: var(--color-border);"></div>
+          <div class="stat-item" style="padding: 0 24px;">
+            <div
+              style="font-size: 2rem; font-family: var(--font-heading); font-weight: 520; color: var(--color-primary);">
+              CEFR</div>
+            <div style="font-size: 0.9rem; color: var(--color-muted);">A1–C2 Certified</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Trusted By -->
+    <section class="trusted-by"
+      style="background-color: var(--color-surface); padding: 40px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="container text-center">
+        <p
+          style="font-size: 0.85rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px;">
+          Trusted by global enterprise teams</p>
+        <div class="trusted-logos">
+          <div class="logo-item"><i class="ph ph-globe"></i><span>Globalize</span></div>
+          <div class="logo-item"><i class="ph ph-cube"></i><span>Vertex</span></div>
+          <div class="logo-item"><i class="ph ph-leaf"></i><span>Aura</span></div>
+          <div class="logo-item"><i class="ph ph-infinity"></i><span>Nexus</span></div>
+          <div class="logo-item"><i class="ph ph-diamonds-four"></i><span>Apex</span></div>
+          <div class="logo-item"><i class="ph ph-phone"></i><span>Nova</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: How It Works -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>The LinguaPro Methodology</h2>
+          <p class="lead">A data-driven approach to language mastery, designed for accountability and ROI.</p>
+        </div>
+
+        <div class="how-it-works-grid">
+
+          <!-- Card 1: Assess -->
+          <div class="card text-center" style="align-items: center; padding: 0; overflow: hidden;">
+            <div style="width: 100%; height: 200px; overflow: hidden;">
+              <img src="assets/images/method-assess.jpg" alt="Employee taking a language assessment"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 32px; display: flex; flex-direction: column; align-items: center;">
+              <div
+                style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-secondary); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px;">
+                <i class="ph ph-target"></i>
+              </div>
+              <h3 class="mb-2">1. Assess</h3>
+              <p style="color: var(--color-muted);">Establish baseline CEFR levels and define target outcomes for every
+                employee.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Learn -->
+          <div class="card text-center" style="align-items: center; padding: 0; overflow: hidden;">
+            <div style="width: 100%; height: 200px; overflow: hidden;">
+              <img src="assets/images/method-learn.jpg" alt="Professional engaged in language training"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 32px; display: flex; flex-direction: column; align-items: center;">
+              <div
+                style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-secondary); color: var(--color-accent); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px;">
+                <i class="ph ph-books"></i>
+              </div>
+              <h3 class="mb-2">2. Learn</h3>
+              <p style="color: var(--color-muted);">Engage with industry-specific, expert-led training tailored to their
+                current proficiency.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Measure -->
+          <div class="card text-center" style="align-items: center; padding: 0; overflow: hidden;">
+            <div style="width: 100%; height: 200px; overflow: hidden;">
+              <img src="assets/images/method-measure.jpg" alt="HR manager reviewing language training dashboard"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 32px; display: flex; flex-direction: column; align-items: center;">
+              <div
+                style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-secondary); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px;">
+                <i class="ph ph-chart-line-up"></i>
+              </div>
+              <h3 class="mb-2">3. Measure</h3>
+              <p style="color: var(--color-muted);">Track progress, completion rates, and CEFR advancements on your HR
+                dashboard.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Course Highlights -->
+    <section style="background-color: var(--color-surface);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Enterprise Programs</h2>
+          <p class="lead">Specialized curriculums tailored for global business communication.</p>
+        </div>
+
+        <div class="course-highlights-grid">
+
+          <!-- Course Card 1 -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/course-english.jpg" alt="Executive Communication in English"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 32px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span style="font-size: 2rem;">🇬🇧</span>
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;">Business
+                  English</span>
+              </div>
+              <h3 class="card-title">Executive Communication</h3>
+              <div class="cefr-rail mini" aria-label="CEFR B2 to C1">
+                <span class="cefr-node">A1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">A2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">B1</span><span class="cefr-connector"></span>
+                <span class="cefr-node current">B2</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">C1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C2</span>
+              </div>
+              <div class="card-body">
+                <p style="color: var(--color-muted); font-size: 0.95rem; margin-bottom: 16px;">Advanced negotiation,
+                  presentation, and leadership skills for global managers.</p>
+                <div class="d-flex align-center gap-2" style="font-size: 0.85rem; color: var(--color-muted);">
+                  <span><i class="ph ph-users"></i> 12,400+ enrolled</span>
+                </div>
+              </div>
+              <a href="courses.html" class="btn btn-outline btn-full mt-4">View Course</a>
+            </div>
+          </div>
+
+          <!-- Course Card 2 -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/course-spanish.jpg" alt="LATAM Market Expansion Spanish Course"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 32px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span style="font-size: 2rem;">🇪🇸</span>
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;">Corporate
+                  Spanish</span>
+              </div>
+              <h3 class="card-title">LATAM Market Expansion</h3>
+              <div class="cefr-rail mini" aria-label="CEFR A2 to B1">
+                <span class="cefr-node">A1</span><span class="cefr-connector"></span>
+                <span class="cefr-node current">A2</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">B1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">B2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C2</span>
+              </div>
+              <div class="card-body">
+                <p style="color: var(--color-muted); font-size: 0.95rem; margin-bottom: 16px;">Essential business
+                  terminology and cultural nuances for teams expanding into America.</p>
+                <div class="d-flex align-center gap-2" style="font-size: 0.85rem; color: var(--color-muted);">
+                  <span><i class="ph ph-users"></i> 8,200+ enrolled</span>
+                </div>
+              </div>
+              <a href="courses.html" class="btn btn-outline btn-full mt-4">View Course</a>
+            </div>
+          </div>
+
+          <!-- Course Card 3 -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/course-german.jpg" alt="German for Engineering and Manufacturing"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 32px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span style="font-size: 2rem;">🇩🇪</span>
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;">Technical
+                  German</span>
+              </div>
+              <h3 class="card-title">Engineering & Manufacturing</h3>
+              <div class="cefr-rail mini" aria-label="CEFR B1 to B2">
+                <span class="cefr-node">A1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">A2</span><span class="cefr-connector"></span>
+                <span class="cefr-node current">B1</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">B2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C2</span>
+              </div>
+              <div class="card-body">
+                <p style="color: var(--color-muted); font-size: 0.95rem; margin-bottom: 16px;">Industry-specific
+                  vocabulary for engineers collaborating with DACH region partners.</p>
+                <div class="d-flex align-center gap-2" style="font-size: 0.85rem; color: var(--color-muted);">
+                  <span><i class="ph ph-users"></i> 4,500+ enrolled</span>
+                </div>
+              </div>
+              <a href="courses.html" class="btn btn-outline btn-full mt-4">View Course</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-4" style="margin-top: 48px;">
+          <a href="courses.html" class="btn btn-text">Explore All 40+ Languages <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Outcomes & ROI -->
+    <section>
+      <div class="container">
+        <div class="outcomes-roi-grid">
+          <!-- Left: Big Numbers -->
+          <div>
+            <div style="margin-bottom: 48px;">
+              <div
+                style="font-size: 4.5rem; font-family: var(--font-heading); color: var(--color-primary); line-height: 1;">
+                <span class="stat-number" data-target="3">0</span>&times;
+              </div>
+              <h3 style="margin-top: 16px; margin-bottom: 8px;">Faster Proficiency Growth</h3>
+              <p style="color: var(--color-muted);">Compared to traditional unstructured language learning methods.</p>
+            </div>
+
+            <div>
+              <div
+                style="font-size: 4.5rem; font-family: var(--font-heading); color: var(--color-accent); line-height: 1;">
+                <span class="stat-number" data-target="82">0</span>%
+              </div>
+              <h3 style="margin-top: 16px; margin-bottom: 8px;">Reach Target CEFR Level</h3>
+              <p style="color: var(--color-muted);">Of consistent learners achieve their certified proficiency goals
+                within 6 months.</p>
+            </div>
+          </div>
+
+          <!-- Right: Text & Context -->
+          <div>
+            <h2 class="mb-3">Measurable impact on your bottom line.</h2>
+            <p class="lead mb-4">We replace vanity metrics with concrete CEFR advancements. Our HR dashboard provides
+              transparent reporting on employee engagement and proficiency milestones.</p>
+
+            <ul class="outcomes-list">
+              <li>
+                <i class="ph ph-check-circle"></i>
+                <span><strong>Identify Skill Gaps:</strong> Pre-assessments map your team's current capabilities against
+                  your organizational needs.</span>
+              </li>
+              <li>
+                <i class="ph ph-check-circle"></i>
+                <span><strong>Automate Reporting:</strong> Export PDF and CSV reports for board meetings and L&D reviews
+                  instantly.</span>
+              </li>
+              <li>
+                <i class="ph ph-check-circle"></i>
+                <span><strong>Increase Retention:</strong> Employees who receive professional development are 34% more
+                  likely to stay.</span>
+              </li>
+            </ul>
+
+            <a href="enterprise.html" class="btn btn-outline mt-4">Discover the HR Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Testimonials -->
+    <section
+      style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div class="section-header">
+          <h2>What L&D Leaders Say</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+
+          <!-- Testimonial 1 -->
+          <div class="card" style="background-color: var(--color-secondary); text-align: center; align-items: center;">
+            <div class="d-flex gap-2 mb-3" style="color: #f1c40f; justify-content: center;">
+              <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+            </div>
+            <p style="font-size: 1.1rem; font-style: italic; margin-bottom: 24px; flex-grow: 1;">"The transition from
+              arbitrary language tutoring to LinguaPro's structured CEFR curriculum completely transformed our European
+              sales team's communication confidence."</p>
+            <div class="d-flex align-center gap-2" style="justify-content: center; flex-direction: column;">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: #ccc; overflow: hidden;">
+                <img src="assets/images/avatar-sarah.jpg" alt="Sarah Jenkins"
+                  style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div>
+                <div style="font-weight: 510; font-size: 0.95rem;">Sarah Jenkins</div>
+                <div style="font-size: 0.8rem; color: var(--color-muted);">VP of HR, TechGlobal</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="card" style="background-color: var(--color-secondary); text-align: center; align-items: center;">
+            <div class="d-flex gap-2 mb-3" style="color: #f1c40f; justify-content: center;">
+              <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+            </div>
+            <p style="font-size: 1.1rem; font-style: italic; margin-bottom: 24px; flex-grow: 1;">"Finally, a language
+              training provider that understands B2B reporting. The HR dashboard gives me exact ROI metrics to present
+              to the board every quarter."</p>
+            <div class="d-flex align-center gap-2" style="justify-content: center; flex-direction: column;">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: #ccc; overflow: hidden;">
+                <img src="assets/images/avatar-marcus.jpg" alt="Marcus Thorne"
+                  style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div>
+                <div style="font-weight: 510; font-size: 0.95rem;">Marcus Thorne</div>
+                <div style="font-size: 0.8rem; color: var(--color-muted);">Chief Learning Officer, FinCorp</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Enterprise CTA -->
+    <section style="background-color: var(--color-primary); color: #fff; text-align: center; padding: 100px 0;">
+      <div class="container">
+        <h2 style="color: #fff; max-width: 800px; margin-inline: auto; margin-bottom: 24px;">Built for teams of 10 to
+          10,000.</h2>
+        <p
+          style="font-size: 1.2rem; max-width: 600px; margin-inline: auto; margin-bottom: 40px; color: rgba(255,255,255,0.8);">
+          Deploy CEFR-certified training programs globally with centralized billing, SSO, and comprehensive progress
+          reporting.</p>
+        <a href="contact.html#demo" class="btn btn-primary enterprise-cta-btn">Talk to Our
+          Enterprise Team</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-3">
+            <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+          </a>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; max-width: 250px;">Precision
+            language training for the modern global enterprise.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="instructors.html">Instructors</a></li>
+            <li><a href="enterprise.html">Enterprise Solutions</a></li>
+            <li><a href="enterprise.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">GDPR Compliance</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2025 LinguaPro. All rights reserved. CEFR is a registered trademark of the Council of Europe.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

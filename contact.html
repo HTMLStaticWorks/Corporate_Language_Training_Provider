@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaPro | Contact Us & Request Demo</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      margin-top: 48px;
+    }
+    
+    .contact-form-container {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 48px;
+      box-shadow: var(--shadow);
+    }
+    
+    .contact-info {
+      padding: 24px 0;
+    }
+    
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    
+    .contact-detail i {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      margin-top: 4px;
+    }
+    
+    .map-placeholder {
+      background: var(--color-border);
+      height: 300px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-muted);
+      margin-top: 48px;
+    }
+    
+    @media (max-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 360px) {
+      .contact-form-container {
+        padding: 24px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="desktop-toggles d-flex gap-2">
+          <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+          <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+        </div>
+        <a href="login.html" class="btn btn-primary login-link">Login</a>
+        <button class="icon-btn hamburger" aria-label="Open Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Drawer -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <button class="icon-btn drawer-close" aria-label="Close Menu"><i class="ph ph-x"></i></button>
+    <div class="drawer-content">
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="drawer-toggles">
+        <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+      </div>
+      <div class="drawer-actions">
+        <a href="login.html" class="btn btn-primary btn-full login-link">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <main style="padding-top: 100px;">
+    <section>
+      <div class="container">
+        <div class="section-header text-center">
+          <h1 class="mb-2">Get in Touch</h1>
+          <p class="lead">Whether you need a custom enterprise solution or just have a question, our team is here to help.</p>
+        </div>
+        
+        <div class="contact-grid" id="demo">
+          <!-- Form Column -->
+          <div class="contact-form-container">
+            <h2 class="mb-4 text-center">Send us a message</h2>
+            <form action="#" method="POST" data-validate>
+              <!-- Formspree placeholder action -->
+              
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="name" required placeholder="Jane Doe">
+                <div class="error-message">This field is required</div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Company Name</label>
+                <input type="text" class="form-control" name="company" required placeholder="Acme Corp">
+                <div class="error-message">This field is required</div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Work Email</label>
+                <input type="email" class="form-control" name="email" required placeholder="jane@company.com">
+                <div class="error-message">Valid work email is required</div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Phone Number (Optional)</label>
+                <input type="tel" class="form-control" name="phone" placeholder="+1 (555) 000-0000">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Interest</label>
+                <select class="form-control" name="interest" required>
+                  <option value="">Select an option...</option>
+                  <option value="demo">Request a Demo</option>
+                  <option value="partnership">Partnership Inquiry</option>
+                  <option value="support">General Support</option>
+                </select>
+                <div class="error-message">Please select an option</div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" name="message" rows="5" required placeholder="How can we help your team?"></textarea>
+                <div class="error-message">Message is required</div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-full mt-4" style="padding: 16px;">Submit Request</button>
+            </form>
+          </div>
+          
+          <!-- Contact Info Column -->
+          <div class="contact-info">
+            <h2 class="mb-4">Contact Information</h2>
+            
+            <div class="contact-detail">
+              <i class="ph ph-envelope-simple"></i>
+              <div>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Email</h3>
+                <p style="color: var(--color-muted);">enterprise@linguapro.com</p>
+                <p style="color: var(--color-muted);">support@linguapro.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <i class="ph ph-phone"></i>
+              <div>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Phone</h3>
+                <p style="color: var(--color-muted);">+1 (800) 555-0199 (Americas)</p>
+                <p style="color: var(--color-muted);">+44 20 7123 4567 (EMEA)</p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <i class="ph ph-map-pin"></i>
+              <div>
+                <h3 style="font-size: 1.1rem; margin-bottom: 4px;">Global Headquarters</h3>
+                <p style="color: var(--color-muted);">100 Innovation Drive<br>Suite 400<br>San Francisco, CA 94105</p>
+              </div>
+            </div>
+            
+            <!-- Map Placeholder -->
+            <div class="map-placeholder">
+              <!-- Google Maps iframe placeholder -->
+              <div class="text-center">
+                <i class="ph ph-map-trifold" style="font-size: 3rem; margin-bottom: 8px;"></i>
+                <p>Interactive Map Embed</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-3">
+            <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+          </a>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; max-width: 250px;">Precision language training for the modern global enterprise.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="instructors.html">Instructors</a></li>
+            <li><a href="enterprise.html">Enterprise Solutions</a></li>
+            <li><a href="enterprise.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">GDPR Compliance</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 LinguaPro. All rights reserved. CEFR is a registered trademark of the Council of Europe.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

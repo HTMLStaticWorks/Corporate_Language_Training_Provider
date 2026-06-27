@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaPro | Coming Soon</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <style>
+    .countdown-timer {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      margin: 48px 0;
+    }
+    
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .countdown-value {
+      font-size: 3rem;
+      font-family: var(--font-heading);
+      font-weight: 540;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    
+    .countdown-label {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .subscribe-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+      gap: 8px;
+    }
+    
+    .subscribe-form input {
+      flex-grow: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .countdown-timer {
+        gap: 16px;
+      }
+      .countdown-value {
+        font-size: 2rem;
+      }
+      .subscribe-form {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="desktop-toggles d-flex gap-2">
+          <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+          <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+        </div>
+        <a href="login.html" class="btn btn-primary login-link">Login</a>
+        <button class="icon-btn hamburger" aria-label="Open Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 0;">
+    <div class="container">
+      
+      <!-- Decorative CEFR Rail -->
+      <div style="max-width: 400px; margin: 0 auto 48px auto; opacity: 0.5;">
+        <div class="cefr-rail mini" aria-label="CEFR Progress">
+          <span class="cefr-node current">A1</span><span class="cefr-connector active"></span>
+          <span class="cefr-node active">A2</span><span class="cefr-connector active"></span>
+          <span class="cefr-node active">B1</span><span class="cefr-connector"></span>
+          <span class="cefr-node">B2</span><span class="cefr-connector"></span>
+          <span class="cefr-node">C1</span><span class="cefr-connector"></span>
+          <span class="cefr-node">C2</span>
+        </div>
+      </div>
+
+      <h1 class="mb-3">New languages. New levels.<br>Launching soon.</h1>
+      <p class="lead" style="max-width: 600px; margin-inline: auto;">We're expanding our enterprise curriculum to include advanced technical modules for APAC region languages.</p>
+      
+      <div class="countdown-timer">
+        <div class="countdown-item">
+          <span class="countdown-value">14</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value">08</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value">45</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value">12</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+      
+      <div style="margin-top: 48px;">
+        <p style="margin-bottom: 16px; font-weight: 510;">Get notified when we launch</p>
+        
+        <!-- Mailchimp embed placeholder / simulated form -->
+        <form class="subscribe-form" action="#" method="POST" data-validate>
+          <input type="email" class="form-control" name="email" required placeholder="Enter your work email">
+          <button type="submit" class="btn btn-primary" style="white-space: nowrap;">Subscribe</button>
+        </form>
+        <div class="error-message" style="max-width: 500px; margin: 8px auto 0 auto; text-align: left; display: none;">Valid email required</div>
+      </div>
+      
+    </div>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaPro | Instructors</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    @media (max-width: 1023px) {
+      .instructor-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .instructor-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .instructor-card {
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    .instructor-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 24px auto;
+      border: 4px solid var(--color-secondary);
+      box-shadow: var(--shadow);
+    }
+
+    .instructor-badges {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .instructor-badge {
+      font-size: 0.75rem;
+      background: var(--color-secondary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 510;
+      color: var(--color-primary);
+    }
+
+    .filter-bar {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 16px 24px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link active">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="desktop-toggles d-flex gap-2">
+          <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+          <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+        </div>
+        <a href="login.html" class="btn btn-primary login-link">Login</a>
+        <button class="icon-btn hamburger" aria-label="Open Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Drawer -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <button class="icon-btn drawer-close" aria-label="Close Menu"><i class="ph ph-x"></i></button>
+    <div class="drawer-content">
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link active">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="drawer-toggles">
+        <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+      </div>
+      <div class="drawer-actions">
+        <a href="login.html" class="btn btn-primary btn-full login-link">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <main style="padding-top: 100px;">
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h1 class="mb-2">Our Certified Instructors</h1>
+          <p class="lead">Industry experts trained to deliver our proprietary CEFR curriculum.</p>
+        </div>
+
+        <div class="filter-bar" style="justify-content: center;">
+          <div class="d-flex align-center gap-2">
+            <label style="font-weight: 510; font-size: 0.9rem;"><i class="ph ph-funnel"></i> Filter by Language:</label>
+            <select aria-label="Select Language" class="form-control" style="width: auto; padding: 8px 32px 8px 16px;">
+              <option value="all">All Languages</option>
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+              <option value="de">German</option>
+              <option value="fr">French</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="instructor-grid">
+
+          <!-- Instructor 1 -->
+          <div class="card instructor-card">
+            <img src="assets/images/instructor-elena1.jpg" alt="Elena Garcia" class="instructor-avatar">
+            <h3 class="mb-1">Elena Garcia</h3>
+            <p style="color: var(--color-primary); font-weight: 510; font-size: 0.9rem; margin-bottom: 8px;">Spanish
+              (Native) • English (C2)</p>
+            <div style="color: #f1c40f; font-size: 0.9rem; margin-bottom: 16px;"><i class="ph-fill ph-star"></i> 4.9
+              (420 reviews)</div>
+            <p style="color: var(--color-muted); font-size: 0.9rem; flex-grow: 1;">Specializes in corporate negotiation
+              and cross-cultural communication.</p>
+            <div class="instructor-badges">
+              <span class="instructor-badge">CEFR A1-C1</span>
+              <span class="instructor-badge">DELE Certified</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-full mt-4">View Profile</a>
+          </div>
+
+          <!-- Instructor 2 -->
+          <div class="card instructor-card">
+            <img src="assets/images/instructor-david1.jpg" alt="David Kim" class="instructor-avatar">
+            <h3 class="mb-1">David Kim</h3>
+            <p style="color: var(--color-primary); font-weight: 510; font-size: 0.9rem; margin-bottom: 8px;">English
+              (Native) • Mandarin (C1)</p>
+            <div style="color: #f1c40f; font-size: 0.9rem; margin-bottom: 16px;"><i class="ph-fill ph-star"></i> 5.0
+              (310 reviews)</div>
+            <p style="color: var(--color-muted); font-size: 0.9rem; flex-grow: 1;">Former Tech Exec turned language
+              coach for IT professionals.</p>
+            <div class="instructor-badges">
+              <span class="instructor-badge">CEFR B1-C2</span>
+              <span class="instructor-badge">CELTA</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-full mt-4">View Profile</a>
+          </div>
+
+          <!-- Instructor 3 -->
+          <div class="card instructor-card">
+            <img src="assets/images/instructor-marie1.jpg" alt="Marie Laurent" class="instructor-avatar">
+            <h3 class="mb-1">Marie Laurent</h3>
+            <p style="color: var(--color-primary); font-weight: 510; font-size: 0.9rem; margin-bottom: 8px;">French
+              (Native) • German (C2)</p>
+            <div style="color: #f1c40f; font-size: 0.9rem; margin-bottom: 16px;"><i class="ph-fill ph-star"></i> 4.8
+              (280 reviews)</div>
+            <p style="color: var(--color-muted); font-size: 0.9rem; flex-grow: 1;">Expert in EU regulatory terminology
+              and diplomatic communication.</p>
+            <div class="instructor-badges">
+              <span class="instructor-badge">CEFR A1-C2</span>
+              <span class="instructor-badge">DALF Certified</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-full mt-4">View Profile</a>
+          </div>
+
+          <!-- Instructor 4 -->
+          <div class="card instructor-card">
+            <img src="assets/images/instructor-lars1.jpg" alt="Lars Visser" class="instructor-avatar">
+            <h3 class="mb-1">Lars Visser</h3>
+            <p style="color: var(--color-primary); font-weight: 510; font-size: 0.9rem; margin-bottom: 8px;">German
+              (Native) • English (C2)</p>
+            <div style="color: #f1c40f; font-size: 0.9rem; margin-bottom: 16px;"><i class="ph-fill ph-star"></i> 4.9
+              (195 reviews)</div>
+            <p style="color: var(--color-muted); font-size: 0.9rem; flex-grow: 1;">Specialized in technical engineering
+              vocabulary and manufacturing.</p>
+            <div class="instructor-badges">
+              <span class="instructor-badge">CEFR B1-C1</span>
+              <span class="instructor-badge">Goethe-Zertifikat</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-full mt-4">View Profile</a>
+          </div>
+
+          <!-- Instructor 5 -->
+          <div class="card instructor-card">
+            <img src="assets/images/instructor-sarah1.jpg" alt="Sarah Jenkins" class="instructor-avatar">
+            <h3 class="mb-1">Sarah Jenkins</h3>
+            <p style="color: var(--color-primary); font-weight: 510; font-size: 0.9rem; margin-bottom: 8px;">English
+              (Native)</p>
+            <div style="color: #f1c40f; font-size: 0.9rem; margin-bottom: 16px;"><i class="ph-fill ph-star"></i> 4.7
+              (520 reviews)</div>
+            <p style="color: var(--color-muted); font-size: 0.9rem; flex-grow: 1;">Focuses on executive presence and
+              public speaking for C-suite leaders.</p>
+            <div class="instructor-badges">
+              <span class="instructor-badge">CEFR C1-C2</span>
+              <span class="instructor-badge">TESOL</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-full mt-4">View Profile</a>
+          </div>
+
+          <!-- Instructor 6 -->
+          <div class="card instructor-card">
+            <img src="assets/images/instructor-chen1.jpg" alt="Chen Wei" class="instructor-avatar">
+            <h3 class="mb-1">Chen Wei</h3>
+            <p style="color: var(--color-primary); font-weight: 510; font-size: 0.9rem; margin-bottom: 8px;">Mandarin
+              (Native) • English (C1)</p>
+            <div style="color: #f1c40f; font-size: 0.9rem; margin-bottom: 16px;"><i class="ph-fill ph-star"></i> 4.9
+              (150 reviews)</div>
+            <p style="color: var(--color-muted); font-size: 0.9rem; flex-grow: 1;">Supply chain and manufacturing
+              vocabulary for project managers.</p>
+            <div class="instructor-badges">
+              <span class="instructor-badge">CEFR A1-B2</span>
+              <span class="instructor-badge">CTCSOL</span>
+            </div>
+            <a href="#" class="btn btn-outline btn-full mt-4">View Profile</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-3">
+            <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+          </a>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; max-width: 250px;">Precision
+            language training for the modern global enterprise.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="instructors.html">Instructors</a></li>
+            <li><a href="enterprise.html">Enterprise Solutions</a></li>
+            <li><a href="enterprise.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">GDPR Compliance</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 LinguaPro. All rights reserved. CEFR is a registered trademark of the Council of Europe.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

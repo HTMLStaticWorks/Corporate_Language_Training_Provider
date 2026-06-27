@@ -1,0 +1,70 @@
+/* ==========================================================================
+   LinguaPro - RTL Overrides
+   ========================================================================== */
+
+/* Layout logic flips */
+html[dir="rtl"] {
+  /* No need to reset variables if we use logical properties, 
+     but we'll flip specific alignments */
+}
+
+html[dir="rtl"] .logo-dot {
+  margin-left: 0;
+  margin-right: 2px;
+}
+
+html[dir="rtl"] section .section-header {
+  /* Center stays center, but if we have margins they adapt */
+}
+
+/* Drawer slides from left in RTL */
+html[dir="rtl"] .drawer {
+  right: auto;
+  left: -100%;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.1);
+}
+
+html[dir="rtl"] .drawer.open {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .drawer-close {
+  right: auto;
+  left: 24px;
+}
+
+/* Buttons and icons */
+html[dir="rtl"] .btn {
+  gap: 8px; /* Flex gap handles direction automatically */
+}
+
+html[dir="rtl"] .btn i {
+  /* If icons need flipping, usually done via SVG transform, but Phosphor handles it if needed, or we rotate */
+}
+
+/* Auth dividers */
+html[dir="rtl"] .auth-divider::before {
+  margin-right: 0;
+  margin-left: .5em;
+}
+
+html[dir="rtl"] .auth-divider::after {
+  margin-left: 0;
+  margin-right: .5em;
+}
+
+/* CEFR Rail Direction - Reverses C2 -> A1 */
+html[dir="rtl"] .cefr-rail {
+  flex-direction: row-reverse;
+}
+
+/* Utility flips if any */
+html[dir="rtl"] .ms-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+html[dir="rtl"] .me-auto {
+  margin-right: 0;
+  margin-left: auto;
+}

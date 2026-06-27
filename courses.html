@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaPro | Courses</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    .filter-bar {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 16px 24px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .filter-group select {
+      padding: 8px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      background: var(--color-surface);
+      color: var(--color-text);
+    }
+
+    .checkbox-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 48px;
+    }
+
+    .page-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .page-btn.active,
+    .page-btn:hover {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+
+    /* Courses CTA Banner */
+    .courses-cta-banner {
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 60px 48px;
+      text-align: center;
+      margin-top: 64px;
+      box-shadow: var(--shadow);
+    }
+    
+    .courses-cta-banner h2 {
+      color: #fff;
+      margin-bottom: 16px;
+      font-size: 2.2rem;
+    }
+    
+    .courses-cta-banner p {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin: 0 auto 32px auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    .courses-cta-btn {
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 1.1rem;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 550;
+      border: none;
+    }
+    
+    .courses-cta-btn:hover {
+      background: #279e69;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(46, 184, 122, 0.35);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link active">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="desktop-toggles d-flex gap-2">
+          <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+          <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+        </div>
+        <a href="login.html" class="btn btn-primary login-link">Login</a>
+        <button class="icon-btn hamburger" aria-label="Open Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Drawer -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <button class="icon-btn drawer-close" aria-label="Close Menu"><i class="ph ph-x"></i></button>
+    <div class="drawer-content">
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link active">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="drawer-toggles">
+        <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+      </div>
+      <div class="drawer-actions">
+        <a href="login.html" class="btn btn-primary btn-full login-link">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <main style="padding-top: 100px;">
+    <section>
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-left: 0; max-width: 100%;">
+          <h1 class="mb-2">Enterprise Curriculum</h1>
+          <p class="lead">Explore our CEFR-certified language programs designed for global business teams.</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label style="font-weight: 510; font-size: 0.9rem;"><i class="ph ph-translate"></i> Language:</label>
+            <select aria-label="Select Language">
+              <option value="all">All Languages</option>
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+              <option value="de">German</option>
+              <option value="fr">French</option>
+              <option value="zh">Mandarin</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label style="font-weight: 510; font-size: 0.9rem;"><i class="ph ph-graduation-cap"></i> Format:</label>
+            <select aria-label="Select Format">
+              <option value="all">All Formats</option>
+              <option value="live">Live Instruction</option>
+              <option value="self">Self-Paced</option>
+              <option value="blended">Blended Learning</option>
+            </select>
+          </div>
+
+          <div class="filter-group" style="flex-grow: 1;">
+            <label style="font-weight: 510; font-size: 0.9rem;">CEFR Level:</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label"><input type="checkbox" checked> A1</label>
+              <label class="checkbox-label"><input type="checkbox" checked> A2</label>
+              <label class="checkbox-label"><input type="checkbox" checked> B1</label>
+              <label class="checkbox-label"><input type="checkbox" checked> B2</label>
+              <label class="checkbox-label"><input type="checkbox" checked> C1</label>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Grid -->
+        <div class="course-grid">
+
+          <!-- Card 1: Business English -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/course-exec-english.jpg" alt="Business English Executive Presence"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 28px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span style="font-size: 2rem;">🇬🇧</span>
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;"><i
+                    class="ph ph-video-camera"></i> Live Blended</span>
+              </div>
+              <h3 class="card-title">Business English: Executive Presence</h3>
+              <div class="cefr-rail mini" aria-label="CEFR B2 to C1">
+                <span class="cefr-node">A1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">A2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">B1</span><span class="cefr-connector"></span>
+                <span class="cefr-node current">B2</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">C1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C2</span>
+              </div>
+              <div class="card-body">
+                <div class="d-flex align-center justify-between mb-3"
+                  style="font-size: 0.85rem; color: var(--color-muted);">
+                  <span><i class="ph ph-clock"></i> 12 Weeks</span>
+                  <span style="color: #f1c40f;"><i class="ph-fill ph-star"></i> 4.9 (2.1k)</span>
+                </div>
+                <p style="color: var(--color-muted); font-size: 0.95rem;">Advanced negotiation, presentation, and
+                  communication skills for global managers.</p>
+              </div>
+              <a href="contact.html#demo" class="btn btn-outline btn-full mt-4">Enroll Team</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Corporate Spanish -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/course-latam-spanish.jpg" alt="Corporate Spanish LATAM Expansion"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 28px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span style="font-size: 2rem;">🇪🇸</span>
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;"><i
+                    class="ph ph-monitor-play"></i> Self-Paced</span>
+              </div>
+              <h3 class="card-title">Corporate Spanish: LATAM Expansion</h3>
+              <div class="cefr-rail mini" aria-label="CEFR A2 to B1">
+                <span class="cefr-node">A1</span><span class="cefr-connector"></span>
+                <span class="cefr-node current">A2</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">B1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">B2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C2</span>
+              </div>
+              <div class="card-body">
+                <div class="d-flex align-center justify-between mb-3"
+                  style="font-size: 0.85rem; color: var(--color-muted);">
+                  <span><i class="ph ph-clock"></i> 8 Weeks</span>
+                  <span style="color: #f1c40f;"><i class="ph-fill ph-star"></i> 4.7 (1.8k)</span>
+                </div>
+                <p style="color: var(--color-muted); font-size: 0.95rem;">Essential business terminology and cultural
+                  nuances for teams expanding into America.</p>
+              </div>
+              <a href="contact.html#demo" class="btn btn-outline btn-full mt-4">Enroll Team</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Technical German -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/course-tech-german.jpg" alt="Technical German Engineering"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 28px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span style="font-size: 2rem;">🇩🇪</span>
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;"><i
+                    class="ph ph-video-camera"></i> Live Blended</span>
+              </div>
+              <h3 class="card-title">Technical German: Engineering</h3>
+              <div class="cefr-rail mini" aria-label="CEFR B1 to B2">
+                <span class="cefr-node">A1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">A2</span><span class="cefr-connector"></span>
+                <span class="cefr-node current">B1</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">B2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C2</span>
+              </div>
+              <div class="card-body">
+                <div class="d-flex align-center justify-between mb-3"
+                  style="font-size: 0.85rem; color: var(--color-muted);">
+                  <span><i class="ph ph-clock"></i> 16 Weeks</span>
+                  <span style="color: #f1c40f;"><i class="ph-fill ph-star"></i> 4.8 (800)</span>
+                </div>
+                <p style="color: var(--color-muted); font-size: 0.95rem;">Industry-specific vocabulary for engineers
+                  collaborating with DACH region partners.</p>
+              </div>
+              <a href="contact.html#demo" class="btn btn-outline btn-full mt-4">Enroll Team</a>
+            </div>
+          </div>
+
+          <!-- Card 4: French Diplomacy -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/course-french-diplomacy.jpg" alt="French for Diplomacy and EU Affairs"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 28px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span style="font-size: 2rem;">🇫🇷</span>
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;"><i
+                    class="ph ph-video-camera"></i> Live Blended</span>
+              </div>
+              <h3 class="card-title">French for Diplomacy & EU Affairs</h3>
+              <div class="cefr-rail mini" aria-label="CEFR C1 to C2">
+                <span class="cefr-node">A1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">A2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">B1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">B2</span><span class="cefr-connector"></span>
+                <span class="cefr-node current">C1</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">C2</span>
+              </div>
+              <div class="card-body">
+                <div class="d-flex align-center justify-between mb-3"
+                  style="font-size: 0.85rem; color: var(--color-muted);">
+                  <span><i class="ph ph-clock"></i> 24 Weeks</span>
+                  <span style="color: #f1c40f;"><i class="ph-fill ph-star"></i> 5.0 (420)</span>
+                </div>
+                <p style="color: var(--color-muted); font-size: 0.95rem;">High-level linguistic mastery for corporate
+                  affairs and government relations.</p>
+              </div>
+              <a href="contact.html#demo" class="btn btn-outline btn-full mt-4">Enroll Team</a>
+            </div>
+          </div>
+
+          <!-- Card 5: Mandarin Manufacturing -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/course-mandarin-mfg.jpg" alt="Mandarin Basics for Manufacturing"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 28px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span style="font-size: 2rem;">🇨🇳</span>
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;"><i
+                    class="ph ph-monitor-play"></i> Self-Paced</span>
+              </div>
+              <h3 class="card-title">Mandarin Basics for Manufacturing</h3>
+              <div class="cefr-rail mini" aria-label="CEFR A1 to A2">
+                <span class="cefr-node current">A1</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">A2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">B1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">B2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C2</span>
+              </div>
+              <div class="card-body">
+                <div class="d-flex align-center justify-between mb-3"
+                  style="font-size: 0.85rem; color: var(--color-muted);">
+                  <span><i class="ph ph-clock"></i> 10 Weeks</span>
+                  <span style="color: #f1c40f;"><i class="ph-fill ph-star"></i> 4.6 (1.1k)</span>
+                </div>
+                <p style="color: var(--color-muted); font-size: 0.95rem;">Foundational conversational skills and supply
+                  chain vocabulary for project managers.</p>
+              </div>
+              <a href="contact.html#demo" class="btn btn-outline btn-full mt-4">Enroll Team</a>
+            </div>
+          </div>
+
+          <!-- Card 6: English Customer Success -->
+          <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden;">
+              <img src="assets/images/course-customer-english.jpg" alt="English for Customer Success"
+                style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </div>
+            <div style="padding: 28px;">
+              <div class="d-flex align-center justify-between mb-3">
+                <span style="font-size: 2rem;">🇬🇧</span>
+                <span
+                  style="background: var(--color-secondary); padding: 4px 12px; border-radius: var(--radius); font-size: 0.8rem; font-weight: 510;"><i
+                    class="ph ph-video-camera"></i> Live Blended</span>
+              </div>
+              <h3 class="card-title">English for Customer Success</h3>
+              <div class="cefr-rail mini" aria-label="CEFR B1 to B2">
+                <span class="cefr-node">A1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">A2</span><span class="cefr-connector"></span>
+                <span class="cefr-node current">B1</span><span class="cefr-connector active"></span>
+                <span class="cefr-node active">B2</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C1</span><span class="cefr-connector"></span>
+                <span class="cefr-node">C2</span>
+              </div>
+              <div class="card-body">
+                <div class="d-flex align-center justify-between mb-3"
+                  style="font-size: 0.85rem; color: var(--color-muted);">
+                  <span><i class="ph ph-clock"></i> 8 Weeks</span>
+                  <span style="color: #f1c40f;"><i class="ph-fill ph-star"></i> 4.8 (3.4k)</span>
+                </div>
+                <p style="color: var(--color-muted); font-size: 0.95rem;">Empathetic communication, de-escalation, and
+                  clear technical support phrasing.</p>
+              </div>
+              <a href="contact.html#demo" class="btn btn-outline btn-full mt-4">Enroll Team</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button class="page-btn" aria-label="Previous Page"><i class="ph ph-caret-left"></i></button>
+          <button class="page-btn active" aria-label="Page 1">1</button>
+          <button class="page-btn" aria-label="Page 2">2</button>
+          <button class="page-btn" aria-label="Page 3">3</button>
+          <button class="page-btn" aria-label="Next Page"><i class="ph ph-caret-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner Section -->
+    <section style="padding: 0 0 80px 0;">
+      <div class="container">
+        <div class="courses-cta-banner">
+          <h2>Need a custom curriculum for your industry?</h2>
+          <p>We co-design industry-specific training modules tailored to your business operations, vocabulary requirements, and technical jargon.</p>
+          <a href="contact.html#demo" class="courses-cta-btn">Request a Custom Curriculum</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-3">
+            <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+          </a>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; max-width: 250px;">Precision
+            language training for the modern global enterprise.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="instructors.html">Instructors</a></li>
+            <li><a href="enterprise.html">Enterprise Solutions</a></li>
+            <li><a href="enterprise.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">GDPR Compliance</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 LinguaPro. All rights reserved. CEFR is a registered trademark of the Council of Europe.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

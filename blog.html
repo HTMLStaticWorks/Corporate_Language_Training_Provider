@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaPro | Insights & Resources</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    .blog-tag {
+      font-size: 0.75rem;
+      background: var(--color-secondary);
+      padding: 4px 12px;
+      border-radius: var(--radius);
+      font-weight: 510;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .featured-post {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+
+    .featured-post-img {
+      background: #ccc;
+      height: 100%;
+    }
+
+    .featured-post-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured-post-content {
+      padding: 64px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    @media (max-width: 1200px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .blog-card {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card-img {
+      height: 240px;
+      background: #ccc;
+    }
+
+    .blog-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blog-card-content {
+      padding: 32px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .blog-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+      justify-content: center;
+    }
+
+    .tag-filter {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .tag-btn {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 8px 16px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 510;
+      color: var(--color-text);
+      transition: var(--transition);
+    }
+
+    .tag-btn.active,
+    .tag-btn:hover {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+
+    .read-more-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-primary);
+      font-weight: 510;
+      font-size: 0.95rem;
+      margin-top: auto;
+      margin-bottom: 24px;
+      margin-inline: auto;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .read-more-link i {
+      transition: transform 0.3s ease;
+    }
+
+    .read-more-link:hover {
+      color: var(--color-accent);
+    }
+
+    .read-more-link:hover i {
+      transform: translateX(4px);
+    }
+
+    @media (max-width: 768px) {
+      .featured-post {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-post-img {
+        height: 300px;
+      }
+
+      .featured-post-content {
+        padding: 32px;
+      }
+    }
+
+    /* FAQ Section Styles */
+    .faq-section {
+      padding: 80px 0;
+      background: var(--color-secondary);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .faq-grid {
+      max-width: 800px;
+      margin: 48px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .faq-item {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .faq-item details {
+      width: 100%;
+    }
+
+    .faq-item summary {
+      padding: 24px 32px;
+      font-size: 1.15rem;
+      font-weight: 550;
+      color: var(--color-text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+      outline: none;
+      user-select: none;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      font-weight: 300;
+      transition: transform 0.3s ease;
+      line-height: 1;
+    }
+
+    .faq-item details[open] summary::after {
+      content: '\2212';
+    }
+
+    .faq-answer {
+      padding: 0 32px 24px 32px;
+      color: var(--color-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="desktop-toggles d-flex gap-2">
+          <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+          <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+        </div>
+        <a href="login.html" class="btn btn-primary login-link">Login</a>
+        <button class="icon-btn hamburger" aria-label="Open Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Drawer -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <button class="icon-btn drawer-close" aria-label="Close Menu"><i class="ph ph-x"></i></button>
+    <div class="drawer-content">
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="courses.html" class="nav-link">Courses</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="enterprise.html" class="nav-link">Enterprise</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link dashboard-link">Dashboard</a>
+      </nav>
+      <div class="drawer-toggles">
+        <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+        <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+      </div>
+      <div class="drawer-actions">
+        <a href="login.html" class="btn btn-primary btn-full login-link">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <main style="padding-top: 100px;">
+    <section>
+      <div class="container">
+        <div class="section-header text-center">
+          <h1 class="mb-2">Insights & Resources</h1>
+          <p class="lead">Data-driven strategies for corporate language learning.</p>
+        </div>
+
+        <div class="tag-filter">
+          <button class="tag-btn active">All</button>
+          <button class="tag-btn">Enterprise L&D</button>
+          <button class="tag-btn">CEFR Tips</button>
+          <button class="tag-btn">Language Science</button>
+          <button class="tag-btn">Case Studies</button>
+          <button class="tag-btn">Instructor Insights</button>
+        </div>
+
+        <!-- Featured Post -->
+        <article class="featured-post">
+          <div class="featured-post-img">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80"
+              alt="Team reviewing data">
+          </div>
+          <div class="featured-post-content">
+            <div>
+              <span class="blog-tag">Enterprise L&D</span>
+              <h2 class="mb-3" style="font-size: 2.5rem;"><a href="blog-single.html" style="color: inherit;">How to
+                  Measure the ROI of Language Training</a></h2>
+              <p class="lead mb-4">Stop relying on vanity metrics. Learn how to map CEFR advancements directly to
+                business outcomes, productivity gains, and retention rates.</p>
+              <a href="blog-single.html" class="read-more-link">Read More <i class="ph ph-arrow-right"></i></a>
+
+
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid">
+          <!-- Post 1 -->
+          <article class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=600&q=80"
+                alt="Server room">
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-tag">CEFR Tips</span>
+              <h3 class="mb-2"><a href="blog-single.html" style="color: inherit;">The B2 Plateau: How to Help Your Team
+                  Break Through</a></h3>
+              <p style="color: var(--color-muted); margin-bottom: 24px;">Reaching B2 is common, but moving to C1
+                requires a strategic shift in learning methodology. Here is our approach.</p>
+              <a href="blog-single.html" class="read-more-link">Read More <i class="ph ph-arrow-right"></i></a>
+              <div class="blog-meta">
+                <span>By David Karma</span>
+                <span>Oct 05, 2025</span>
+                <span>5 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+                alt="Meeting">
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-tag">Case Studies</span>
+              <h3 class="mb-2"><a href="blog-single.html" style="color: inherit;">FinCorp's 40% Productivity Increase
+                  via Targeted Spanish</a></h3>
+              <p style="color: var(--color-muted); margin-bottom: 24px;">How unifying communication across 12 countries
+                led to measurable gains for a top tier finance firm.</p>
+              <a href="blog-single.html" class="read-more-link">Read More <i class="ph ph-arrow-right"></i></a>
+              <div class="blog-meta">
+                <span>By Marie Laurent</span>
+                <span>Sep 28, 2025</span>
+                <span>6 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80"
+                alt="Whiteboard">
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-tag">Language Science</span>
+              <h3 class="mb-2"><a href="blog-single.html" style="color: inherit;">The Cognitive Benefits of Blended
+                  Learning</a></h3>
+              <p style="color: var(--color-muted); margin-bottom: 24px;">Why combining self-paced modules with live
+                1-on-1 instruction yields the highest retention rates.</p>
+              <a href="blog-single.html" class="read-more-link">Read More <i class="ph ph-arrow-right"></i></a>
+              <div class="blog-meta">
+                <span>By Dr. Lars Visser</span>
+                <span>Sep 15, 2025</span>
+                <span>10 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
+                alt="Manufacturing">
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-tag">Instructor Insights</span>
+              <h3 class="mb-2"><a href="blog-single.html" style="color: inherit;">Teaching Technical German for
+                  Manufacturing</a></h3>
+              <p style="color: var(--color-muted); margin-bottom: 24px;">An inside look at how we tailor our vocabulary
+                lists to meet the precise needs of DACH region engineers.</p>
+              <a href="blog-single.html" class="read-more-link">Read More <i class="ph ph-arrow-right"></i></a>
+              <div class="blog-meta">
+                <span>By Elena Garcia</span>
+                <span>Sep 02, 2025</span>
+                <span>7 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1511295742364-92767fa62d9f?auto=format&fit=crop&w=600&q=80"
+                alt="Workspace">
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-tag">Language Science</span>
+              <h3 class="mb-2"><a href="blog-single.html" style="color: inherit;">Sleep & Memory Consolidation in
+                  Language Learning</a></h3>
+              <p style="color: var(--color-muted); margin-bottom: 24px;">Uncover the neurological link between sleep
+                quality and vocabulary retention, backed by the latest cognitive research.</p>
+              <a href="blog-single.html" class="read-more-link">Read More <i class="ph ph-arrow-right"></i></a>
+              <div class="blog-meta">
+                <span>By Sarah Jenkins</span>
+                <span>Aug 24, 2025</span>
+                <span>7 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 6 -->
+          <article class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80"
+                alt="Security display">
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-tag">Enterprise L&D</span>
+              <h3 class="mb-2"><a href="blog-single.html" style="color: inherit;">SSO and Security Checklist for Global
+                  L&D software</a></h3>
+              <p style="color: var(--color-muted); margin-bottom: 24px;">A complete coordinator's guide to SAML, OIDC,
+                GDPR, and security protocols when purchasing corporate software.</p>
+              <a href="blog-single.html" class="read-more-link">Read More <i class="ph ph-arrow-right"></i></a>
+              <div class="blog-meta">
+                <span>By Marcus Thorne</span>
+                <span>Aug 10, 2025</span>
+                <span>5 min read</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="text-center mt-4" style="margin-top: 64px;">
+          <button class="btn btn-outline">Load More Articles</button>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Frequently Asked Questions</h2>
+          <p class="lead">Answers to common questions about our programs and methodology.</p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <details>
+              <summary>How are language levels certified?</summary>
+              <p class="faq-answer">All our courses align with the Common European Framework of Reference for Languages
+                (CEFR). Levels A1 through C2 are assessed through official pre-tests and certified exit examinations
+                reviewed by our qualified native instructors.</p>
+            </details>
+          </div>
+
+          <div class="faq-item">
+            <details>
+              <summary>Can we customize the business vocabulary for our industry?</summary>
+              <p class="faq-answer">Yes, our Enterprise and Business plans allow companies to co-design custom learning
+                modules focused on specific vocabulary relevant to fields like finance, IT, manufacturing, and law.</p>
+            </details>
+          </div>
+
+          <div class="faq-item">
+            <details>
+              <summary>What metrics are tracked on the HR Manager Dashboard?</summary>
+              <p class="faq-answer">L&D coordinators can track employee login frequency, lesson completion rates,
+                real-time CEFR level progression, and assessment scores. Automated reporting is available in PDF and CSV
+                formats.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="logo mb-3">
+            <span class="logo-lingua">Lingua</span><span class="logo-pro">Pro</span><span class="logo-dot">.</span>
+          </a>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; max-width: 250px;">Precision
+            language training for the modern global enterprise.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="instructors.html">Instructors</a></li>
+            <li><a href="enterprise.html">Enterprise Solutions</a></li>
+            <li><a href="enterprise.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">GDPR Compliance</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 LinguaPro. All rights reserved. CEFR is a registered trademark of the Council of Europe.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
