@@ -190,6 +190,18 @@ section {
   color: #fff;
 }
 
+.btn-blue {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.btn-blue:hover {
+  background-color: #1e4f7a;
+  color: #fff;
+  border-color: #1e4f7a;
+}
+
 .btn-text {
   background: none;
   padding: 0;
@@ -518,6 +530,11 @@ body.user-logged-in .login-link {
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: calc(var(--space) * 4);
   margin-bottom: calc(var(--space) * 6);
+  align-items: start;
+}
+
+.footer-col .logo {
+  margin-top: -3px;
 }
 
 .footer-col h4 {
@@ -534,10 +551,17 @@ body.user-logged-in .login-link {
 .footer-links a {
   color: var(--color-muted);
   font-size: 0.9rem;
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .footer-links a:hover {
   color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .footer-links a:hover {
+  transform: translateX(-4px);
 }
 
 .footer-social {
@@ -549,10 +573,13 @@ body.user-logged-in .login-link {
 .footer-social a {
   color: var(--color-muted);
   font-size: 1.25rem;
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .footer-social a:hover {
   color: var(--color-primary);
+  transform: translateY(-3px) scale(1.15);
 }
 
 .footer-bottom {
@@ -880,4 +907,46 @@ body.user-logged-in .login-link {
   color: #fff;
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(46, 184, 122, 0.35);
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 16px rgba(45, 106, 159, 0.3);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: var(--color-accent);
+  box-shadow: 0 6px 20px rgba(46, 184, 122, 0.4);
+  transform: translateY(-4px);
+}
+
+/* RTL adjustment */
+[dir="rtl"] .back-to-top {
+  right: auto;
+  left: 24px;
 }

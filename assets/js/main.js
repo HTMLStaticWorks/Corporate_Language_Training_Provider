@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
   initFormValidation();
   checkLoginStatus();
+  initBackToTop();
 });
 
 /* --- Theme Management --- */
@@ -261,4 +262,28 @@ function checkLoginStatus() {
   if (localStorage.getItem('linguapro-logged-in') === 'true') {
     document.body.classList.add('user-logged-in');
   }
+}
+
+/* --- Back to Top --- */
+function initBackToTop() {
+  const btn = document.createElement('button');
+  btn.className = 'back-to-top';
+  btn.setAttribute('aria-label', 'Back to top');
+  btn.innerHTML = '<i class="ph ph-arrow-up"></i>';
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 }

@@ -316,6 +316,19 @@
         box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
       }
 
+      [dir="rtl"] .sidebar {
+        left: auto;
+        right: -240px;
+        border-right: none;
+        border-left: 1px solid var(--color-border);
+      }
+
+      [dir="rtl"] .sidebar.open {
+        left: auto;
+        right: 0;
+        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+      }
+
       .mobile-sidebar-toggle {
         display: block;
       }
@@ -330,6 +343,121 @@
 
       .content-area {
         padding: 16px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .topbar {
+        height: 98px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      #enrollment .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-primary) var(--color-secondary);
+      }
+
+      #enrollment .table-container::-webkit-scrollbar {
+        height: 6px;
+        display: block;
+      }
+
+      #enrollment .table-container::-webkit-scrollbar-track {
+        background: var(--color-secondary);
+        border-radius: var(--radius);
+      }
+
+      #enrollment .table-container::-webkit-scrollbar-thumb {
+        background: var(--color-primary);
+        border-radius: var(--radius);
+      }
+
+      #enrollment .table-container::-webkit-scrollbar-thumb:hover {
+        background: var(--color-accent);
+      }
+
+      #enrollment .enrollment-table {
+        min-width: 700px;
+      }
+
+      .enrollment-header {
+        flex-direction: column;
+        align-items: flex-start !important;
+      }
+
+      .enrollment-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .enrollment-actions .form-control,
+      .enrollment-actions .btn {
+        width: 100% !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #progress .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-primary) var(--color-secondary);
+      }
+
+      #progress .table-container::-webkit-scrollbar {
+        height: 6px;
+        display: block;
+      }
+
+      #progress .table-container::-webkit-scrollbar-track {
+        background: var(--color-secondary);
+        border-radius: var(--radius);
+      }
+
+      #progress .table-container::-webkit-scrollbar-thumb {
+        background: var(--color-primary);
+        border-radius: var(--radius);
+      }
+
+      #progress .table-container::-webkit-scrollbar-thumb:hover {
+        background: var(--color-accent);
+      }
+
+      #progress .progress-table {
+        min-width: 700px;
+      }
+
+      #assessments .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-primary) var(--color-secondary);
+      }
+
+      #assessments .table-container::-webkit-scrollbar {
+        height: 6px;
+        display: block;
+      }
+
+      #assessments .table-container::-webkit-scrollbar-track {
+        background: var(--color-secondary);
+        border-radius: var(--radius);
+      }
+
+      #assessments .table-container::-webkit-scrollbar-thumb {
+        background: var(--color-primary);
+        border-radius: var(--radius);
+      }
+
+      #assessments .table-container::-webkit-scrollbar-thumb:hover {
+        background: var(--color-accent);
+      }
+
+      #assessments .assessments-table {
+        min-width: 700px;
       }
     }
   </style>
@@ -382,7 +510,7 @@
             <div style="font-size: 0.75rem; color: var(--color-muted);">Enterprise Plan</div>
           </div>
         </div>
-        <a href="login.html" class="logout-link"
+        <a href="index.html" class="logout-link"
           style="color: #e74c3c; font-size: 0.9rem; font-weight: 510; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i
             class="ph ph-sign-out"></i> Logout</a>
       </div>
@@ -395,15 +523,14 @@
         <div class="d-flex align-center gap-2">
           <button class="icon-btn mobile-sidebar-toggle"><i class="ph ph-list"></i></button>
           <h2 style="font-size: 1.25rem; font-family: var(--font-body); font-weight: 510;" id="page-title">Dashboard
-            Overview</h2>
+          </h2>
         </div>
 
         <div class="d-flex align-center gap-2">
+          <button class="icon-btn rtl-toggle" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
           <button class="icon-btn theme-toggle" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
-          <div style="width: 32px; height: 32px; border-radius: 50%; overflow: hidden; margin-left: 8px;">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
-              alt="Admin" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
+          <button class="icon-btn profile-toggle" aria-label="Profile" style="margin-left: 8px;"><i
+              class="ph ph-user"></i></button>
         </div>
       </div>
 
@@ -511,14 +638,17 @@
               <div class="d-flex align-center gap-2">
                 <div
                   style="width: 32px; height: 32px; border-radius: 50%; background: #e8f5e9; color: #2e7d32; display: flex; align-items: center; justify-content: center;">
-                  <i class="ph ph-certificate"></i></div>
+                  <i class="ph ph-certificate"></i>
+                </div>
                 <div style="font-size: 0.95rem;"><strong>Maria R.</strong> achieved CEFR Level B2 in Business English.
-                  <span style="color: var(--color-muted); font-size: 0.8rem; margin-left: 8px;">2h ago</span></div>
+                  <span style="color: var(--color-muted); font-size: 0.8rem; margin-left: 8px;">2h ago</span>
+                </div>
               </div>
               <div class="d-flex align-center gap-2">
                 <div
                   style="width: 32px; height: 32px; border-radius: 50%; background: #e3f2fd; color: #1565c0; display: flex; align-items: center; justify-content: center;">
-                  <i class="ph ph-user-plus"></i></div>
+                  <i class="ph ph-user-plus"></i>
+                </div>
                 <div style="font-size: 0.95rem;"><strong>Sales Dept</strong> (14 employees) enrolled in Corporate
                   Spanish. <span style="color: var(--color-muted); font-size: 0.8rem; margin-left: 8px;">5h ago</span>
                 </div>
@@ -526,7 +656,8 @@
               <div class="d-flex align-center gap-2">
                 <div
                   style="width: 32px; height: 32px; border-radius: 50%; background: #fff8e1; color: #f57f17; display: flex; align-items: center; justify-content: center;">
-                  <i class="ph ph-warning-circle"></i></div>
+                  <i class="ph ph-warning-circle"></i>
+                </div>
                 <div style="font-size: 0.95rem;"><strong>3 employees</strong> missed their live coaching session. <span
                     style="color: var(--color-muted); font-size: 0.8rem; margin-left: 8px;">1d ago</span></div>
               </div>
@@ -537,9 +668,9 @@
 
         <!-- View: Team Enrollment -->
         <div id="enrollment" class="dashboard-view">
-          <div class="d-flex justify-between align-center mb-4" style="flex-wrap: wrap; gap: 16px;">
+          <div class="d-flex justify-between align-center mb-4 enrollment-header" style="flex-wrap: wrap; gap: 16px;">
             <h3 style="font-size: 1.5rem; margin: 0;">Team Enrollment</h3>
-            <div class="d-flex gap-2">
+            <div class="d-flex gap-2 enrollment-actions">
               <select class="form-control" id="enrollment-filter" style="width: auto;">
                 <option value="all">All Departments</option>
                 <option value="sales">Sales</option>
@@ -571,7 +702,8 @@
                       <div style="width: 32px; height: 32px; border-radius: 50%; background: #ccc; overflow: hidden;">
                         <img
                           src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
-                          alt="Avatar"></div>
+                          alt="Avatar">
+                      </div>
                       James Wilson
                     </div>
                   </td>
@@ -587,7 +719,8 @@
                       <div style="width: 32px; height: 32px; border-radius: 50%; background: #ccc; overflow: hidden;">
                         <img
                           src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
-                          alt="Avatar"></div>
+                          alt="Avatar">
+                      </div>
                       Sarah Chen
                     </div>
                   </td>
@@ -603,7 +736,8 @@
                       <div style="width: 32px; height: 32px; border-radius: 50%; background: #ccc; overflow: hidden;">
                         <img
                           src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80"
-                          alt="Avatar"></div>
+                          alt="Avatar">
+                      </div>
                       Maria Garcia
                     </div>
                   </td>
@@ -625,7 +759,7 @@
           </div>
 
           <div class="table-container">
-            <table class="data-table">
+            <table class="data-table progress-table">
               <thead>
                 <tr>
                   <th>Course Name</th>
@@ -698,7 +832,7 @@
           </div>
 
           <div class="table-container">
-            <table class="data-table">
+            <table class="data-table assessments-table">
               <thead>
                 <tr>
                   <th>Employee</th>
@@ -758,7 +892,7 @@
               <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 24px; flex-grow: 1;">Overview of
                 engagement hours and module completions across all active languages.</p>
               <div class="d-flex justify-between align-center">
-                <span style="font-size: 0.8rem; color: var(--color-muted);">Auto-generated: 1st of month</span>
+                <span style="font-size: 0.8rem; color: var(--color-muted);">Auto-generated</span>
                 <button class="btn btn-outline generate-report-btn"
                   style="padding: 8px 16px; font-size: 0.85rem;">Download PDF</button>
               </div>
@@ -791,9 +925,128 @@
 
         <!-- View: Placeholder for profiles, notifications, settings -->
         <div id="profiles" class="dashboard-view">
-          <h3>Learner Profiles</h3>
-          <p class="lead">Select an employee from the Enrollment or Progress tabs to view their detailed profile here.
-          </p>
+          <h3 class="mb-4">Learner Profiles</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
+            <!-- Profile Card 1 -->
+            <div class="card" style="padding: 24px; position: relative;">
+              <div class="d-flex align-center gap-3 mb-4">
+                <div
+                  style="width: 60px; height: 60px; border-radius: 50%; background: #ccc; overflow: hidden; border: 2px solid var(--color-primary);">
+                  <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+                    alt="James Wilson" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div>
+                  <h4 style="font-size: 1.15rem; margin: 0; font-family: var(--font-body); font-weight: 550;">James
+                    Wilson</h4>
+                  <div style="font-size: 0.8rem; color: var(--color-muted);">Sales Department</div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                <div class="d-flex justify-between" style="font-size: 0.9rem;">
+                  <span style="color: var(--color-muted);">Active Language:</span>
+                  <span style="font-weight: 510;">Spanish</span>
+                </div>
+                <div class="d-flex justify-between" style="font-size: 0.9rem;">
+                  <span style="color: var(--color-muted);">CEFR Level:</span>
+                  <span style="font-weight: 510;">B1 (Target B2)</span>
+                </div>
+                <div class="d-flex justify-between" style="font-size: 0.9rem;">
+                  <span style="color: var(--color-muted);">Study Hours:</span>
+                  <span style="font-weight: 510;">34.5 hrs</span>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-between align-center mb-1" style="font-size: 0.85rem;">
+                  <span style="color: var(--color-muted);">Overall Progress</span>
+                  <span style="font-weight: 510; color: var(--color-primary);">78%</span>
+                </div>
+                <div
+                  style="width: 100%; height: 8px; background: var(--color-secondary); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 78%; height: 100%; background: var(--color-primary);"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Profile Card 2 -->
+            <div class="card" style="padding: 24px; position: relative;">
+              <div class="d-flex align-center gap-3 mb-4">
+                <div
+                  style="width: 60px; height: 60px; border-radius: 50%; background: #ccc; overflow: hidden; border: 2px solid var(--color-primary);">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"
+                    alt="Sarah Chen" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div>
+                  <h4 style="font-size: 1.15rem; margin: 0; font-family: var(--font-body); font-weight: 550;">Sarah Chen
+                  </h4>
+                  <div style="font-size: 0.8rem; color: var(--color-muted);">SOP Department</div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                <div class="d-flex justify-between" style="font-size: 0.9rem;">
+                  <span style="color: var(--color-muted);">Active Language:</span>
+                  <span style="font-weight: 510;">German</span>
+                </div>
+                <div class="d-flex justify-between" style="font-size: 0.9rem;">
+                  <span style="color: var(--color-muted);">CEFR Level:</span>
+                  <span style="font-weight: 510;">A2 (Target B1)</span>
+                </div>
+                <div class="d-flex justify-between" style="font-size: 0.9rem;">
+                  <span style="color: var(--color-muted);">Study Hours:</span>
+                  <span style="font-weight: 510;">22.0 hrs</span>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-between align-center mb-1" style="font-size: 0.85rem;">
+                  <span style="color: var(--color-muted);">Overall Progress</span>
+                  <span style="font-weight: 510; color: var(--color-primary);">60%</span>
+                </div>
+                <div
+                  style="width: 100%; height: 8px; background: var(--color-secondary); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 60%; height: 100%; background: var(--color-primary);"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Profile Card 3 -->
+            <div class="card" style="padding: 24px; position: relative;">
+              <div class="d-flex align-center gap-3 mb-4">
+                <div
+                  style="width: 60px; height: 60px; border-radius: 50%; background: #ccc; overflow: hidden; border: 2px solid var(--color-primary);">
+                  <img
+                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80"
+                    alt="Maria Garcia" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div>
+                  <h4 style="font-size: 1.15rem; margin: 0; font-family: var(--font-body); font-weight: 550;">Maria
+                    Garcia</h4>
+                  <div style="font-size: 0.8rem; color: var(--color-muted);">Marketing Department</div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                <div class="d-flex justify-between" style="font-size: 0.9rem;">
+                  <span style="color: var(--color-muted);">Active Language:</span>
+                  <span style="font-weight: 510;">English</span>
+                </div>
+                <div class="d-flex justify-between" style="font-size: 0.9rem;">
+                  <span style="color: var(--color-muted);">CEFR Level:</span>
+                  <span style="font-weight: 510;">C1 (Target C1)</span>
+                </div>
+                <div class="d-flex justify-between" style="font-size: 0.9rem;">
+                  <span style="color: var(--color-muted);">Study Hours:</span>
+                  <span style="font-weight: 510;">48.2 hrs</span>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-between align-center mb-1" style="font-size: 0.85rem;">
+                  <span style="color: var(--color-muted);">Overall Progress</span>
+                  <span style="font-weight: 510; color: var(--color-accent);">100%</span>
+                </div>
+                <div
+                  style="width: 100%; height: 8px; background: var(--color-secondary); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 100%; height: 100%; background: var(--color-accent);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div id="notifications" class="dashboard-view">

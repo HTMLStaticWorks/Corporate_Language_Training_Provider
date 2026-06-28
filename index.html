@@ -27,7 +27,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(240, 244, 250, 0.65);
+      background: rgba(240, 244, 250, 0.45);
       pointer-events: none;
       z-index: 0;
     }
@@ -47,6 +47,63 @@
 
     .how-it-works-grid .card:hover img {
       transform: scale(1.05);
+    }
+
+    .hero-glass-card {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius);
+      padding: 48px 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 40px rgba(45, 106, 159, 0.06);
+      max-width: 960px;
+      margin-inline: auto;
+    }
+
+    [data-theme="dark"] .hero-glass-card {
+      background: rgba(21, 34, 54, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-cefr-rail .cefr-node {
+      background: var(--color-surface) !important;
+      border: 1px solid var(--color-primary) !important;
+      color: var(--color-text) !important;
+      box-shadow: 0 2px 8px rgba(45, 106, 159, 0.15);
+    }
+
+    .hero-cefr-rail .cefr-connector {
+      background: var(--color-primary) !important;
+    }
+
+    .hero-stats {
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-stats .stat-item div:first-child {
+      color: var(--color-text) !important;
+      font-size: 2.4rem !important;
+    }
+
+    .hero-stats .stat-item div:last-child {
+      color: var(--color-text) !important;
+      font-weight: 530;
+      font-size: 1.1rem !important;
+    }
+
+    [data-theme="dark"] .hero-stats {
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    }
+
+    [data-theme="dark"] .hero-stats .stat-item div:first-child {
+      color: #fff !important;
+    }
+
+    [data-theme="dark"] .hero-stats .stat-item div:last-child {
+      color: var(--color-muted) !important;
     }
   </style>
 </head>
@@ -126,10 +183,12 @@
     <!-- Section 1: Hero -->
     <section class="hero hero-bg" style="padding-top: 140px; padding-bottom: 100px; text-align: center;">
       <div class="container animate-fade-up">
-        <h1 class="mb-3" style="max-width: 900px; margin-inline: auto;">Language Skills That Drive Business Results.
-        </h1>
-        <p class="lead mb-4" style="max-width: 600px; margin-inline: auto;">Empower your workforce with CEFR-aligned
-          training, measurable outcomes, and an HR dashboard built for enterprise scale.</p>
+        <div class="hero-glass-card">
+          <h1 class="mb-3" style="max-width: 900px; margin-inline: auto;">Language Skills That Drive Business Results.
+          </h1>
+          <p class="lead mb-4" style="max-width: 600px; margin-inline: auto;">Empower your workforce with CEFR-aligned
+            training, measurable outcomes, and an HR dashboard built for enterprise scale.</p>
+        </div>
 
         <!-- Animated CEFR Rail -->
         <div style="max-width: 600px; margin: 40px auto;">
@@ -150,7 +209,7 @@
 
         <div class="d-flex align-center gap-2 mb-4" style="justify-content: center; flex-wrap: wrap;">
           <a href="contact.html#demo" class="btn btn-primary">Request Demo</a>
-          <a href="courses.html" class="btn btn-outline">View Courses</a>
+          <a href="courses.html" class="btn btn-blue">View Courses</a>
         </div>
 
         <div class="hero-stats d-flex gap-2" style="justify-content: center; flex-wrap: wrap; margin-top: 60px;">
@@ -519,7 +578,7 @@
             language training for the modern global enterprise.</p>
           <div class="footer-social">
             <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
-            <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+            <a href="#" aria-label="X"><i class="ph ph-x-logo"></i></a>
             <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
           </div>
         </div>
@@ -556,7 +615,7 @@
       </div>
 
       <div class="footer-bottom">
-        &copy; 2025 LinguaPro. All rights reserved. CEFR is a registered trademark of the Council of Europe.
+        &copy; 2026 LinguaPro. All rights reserved. CEFR is a registered trademark of the Council of Europe.
       </div>
     </div>
   </footer>

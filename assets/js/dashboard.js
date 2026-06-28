@@ -9,7 +9,50 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initReportSimulation();
   initTableFilters();
+  initThemeToggle();
+  initRTLToggle();
 });
+
+// Theme Toggle
+function initThemeToggle() {
+  const themeToggleBtn = document.querySelector('.theme-toggle');
+  if (themeToggleBtn) {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    const icon = themeToggleBtn.querySelector('i');
+    if(icon) {
+      icon.className = savedTheme === 'dark' ? 'ph ph-sun' : 'ph ph-moon';
+    }
+    
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      if(icon) {
+        icon.className = newTheme === 'dark' ? 'ph ph-sun' : 'ph ph-moon';
+      }
+    });
+  }
+}
+
+// RTL Toggle
+function initRTLToggle() {
+  const rtlToggleBtn = document.querySelector('.rtl-toggle');
+  if (rtlToggleBtn) {
+    const savedDir = localStorage.getItem('dir') || 'ltr';
+    document.documentElement.setAttribute('dir', savedDir);
+    
+    rtlToggleBtn.addEventListener('click', () => {
+      const currentDir = document.documentElement.getAttribute('dir');
+      const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+      document.documentElement.setAttribute('dir', newDir);
+      localStorage.setItem('dir', newDir);
+    });
+  }
+}
 
 // Switch between dashboard views
 function initDashboardViews() {
