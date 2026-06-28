@@ -601,6 +601,7 @@ body.user-logged-in .login-link {
 .align-center { align-items: center; }
 .justify-between { justify-content: space-between; }
 .gap-2 { gap: calc(var(--space) * 2); }
+.gap-3 { gap: calc(var(--space) * 3); }
 
 /* --- 12. Authentication Pages (Login/Register) --- */
 .auth-page {
